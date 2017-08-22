@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a08859956768f1a49885358f85cf6cbc, type: 3}
+  m_Name: Hot Springs
+  m_EditorClassIdentifier: 
+  name: Geiser Town
+  description: Descr...
+  background: {fileID: 21300000, guid: 35711aaaf2463c940804cd61081b615b, type: 3}
+  spots:
+  - {fileID: 11400000, guid: 0428b9ae28ae6974ead31044ad1e163b, type: 2}
+  - {fileID: 11400000, guid: b8acc9192d7c62b42bbd28e745b3617d, type: 2}
+  - {fileID: 11400000, guid: 90d1eeac8634fbc41a960d32d9e67ecc, type: 2}

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a08859956768f1a49885358f85cf6cbc, type: 3}
+  m_Name: Train Station
+  m_EditorClassIdentifier: 
+  name: Metro City
+  description: Descr...
+  background: {fileID: 21300000, guid: 94d6b38823e3965499c6eac39b46b62f, type: 3}
+  spots:
+  - {fileID: 11400000, guid: b470580733128c84d8f5a0511b2bfe45, type: 2}
+  - {fileID: 11400000, guid: 9f9dfb2baac67af4d988db7283054994, type: 2}
+  - {fileID: 11400000, guid: cc64a2b8dedb20f4cb1a9a8f1eda1087, type: 2}
