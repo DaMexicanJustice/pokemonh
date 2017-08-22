@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fc29bf59f5a6a54ea1a9c4b6173f4f2, type: 3}
+  m_Name: Aboutme 8
+  m_EditorClassIdentifier: 
+  connectedSteps:
+  - {fileID: 11400000, guid: 873b415161e720d4e8ca2d25b644ef71, type: 2}
+  - {fileID: 11400000, guid: c0cd693db4f4f404faaa9c9134a06cc6, type: 2}
+  - {fileID: 11400000, guid: 090acfb7d10056a40a531b768a12a97c, type: 2}
+  contextTag: Improve herself
+  leftBranchTag: Just Kidding
+  middleBranchTag: Undress
+  rightBranchTag: Age Irrelevant
+  dialogueText: (Her reaction is strong to your words. You tell her that losing some
+    of that innocence might do the trick) What? No. I'm so much younger than you
+  background: {fileID: 21300000, guid: 5cf5c92e43c2868439b2d586878b000e, type: 3}
+  character: {fileID: 21300000, guid: 82263c54c53c0c941a49025512b4af3b, type: 3}

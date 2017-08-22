@@ -14,6 +14,8 @@ public class TownMaster : MonoBehaviour {
 	public Text description;
 	public TownUI ui;
 
+	public GameMaster gm;
+
 	public void SetupSpots() {
 		ClearPrevious ();
 		int idx = 0;
@@ -31,7 +33,8 @@ public class TownMaster : MonoBehaviour {
 		List<BaseCharacter> characters = spot.characters;
 		foreach (BaseCharacter bs in characters) {
 			GameObject btn = Instantiate (btnPrefab, btnsParent);
-			btn.GetComponentInChildren<Text> ().text = "Talk to " + bs.name;
+			btn.GetComponentInChildren<Text> ().text = "Talk  to  " + bs.name;
+			btn.GetComponent<Button>().onClick.AddListener(delegate{TalkToCharacter(bs);});
 			idx++;
 		}
 	}
@@ -62,6 +65,10 @@ public class TownMaster : MonoBehaviour {
 		ClearPrevious ();
 		spot = s;
 		InitSpot ();
+	}
+
+	public void TalkToCharacter(BaseCharacter bc) {
+		gm.SetInteractingWithCharacter (bc);
 	}
 
 

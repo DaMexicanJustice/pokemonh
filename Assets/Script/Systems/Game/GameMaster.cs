@@ -38,15 +38,23 @@ public class GameMaster : MonoBehaviour {
 
 	}
 
+	public void HideUI() {
+		dm.ui.Hide ();
+		tm.ui.Hide ();
+		om.ui.Hide ();
+	}
+
 	public void SetInteractingWithCharacter(BaseCharacter bc) {
-		dm.bc = testChar;
+		dm.bc = bc;
+		dm.currentStep = bc.ds;
 		dm.Init ();
-		dm.gameObject.GetComponent<ConversationUI> ().Show ();
+		HideUI ();
+		dm.ui.Show ();
 	}
 
 	public void DoneInteractingWithCharacter() {
 		dm.bc = null;
-		dm.gameObject.GetComponent<ConversationUI> ().Hide ();
+		HideUI ();
 	}
 
 	public void MoveToCity() {

@@ -6,7 +6,7 @@ using UnityEngine;
 public class FemaleTrainer : Trainer {
 
 	public enum Personality {
-		INNOCENT, NAUGHTY, TESTY
+		INNOCENT, NAUGHTY, NOBULLSHIT, TIMID
 	}
 	public Personality personality;
 

@@ -15,8 +15,10 @@ public class DialogueMaster : MonoBehaviour {
 	public Text characterName;
 	public Text characterDialogue;
 
+	public ConversationUI ui;
+
 	void Awake() {
-		
+		ui = gameObject.GetComponent<ConversationUI> ();
 	}
 
 	void Update() {
@@ -24,7 +26,7 @@ public class DialogueMaster : MonoBehaviour {
 	}
 
 	public void Init() {
-		currentStep = bc.ds;
+		ui = GetComponent<ConversationUI> ();
 		SetupPaths ();
 		SetupDetails ();
 	}

@@ -15,4 +15,4 @@ MonoBehaviour:
   description: Descr...
   background: {fileID: 21300000, guid: 249b813de058e5a49bb403b0d3dfb833, type: 3}
   characters:
-  - {fileID: 11400000, guid: 40e61564c81708742b4fba80f3291a79, type: 2}
+  - {fileID: 11400000, guid: 9b2db0d98e68cf24bb42f6ae507ada6d, type: 2}
