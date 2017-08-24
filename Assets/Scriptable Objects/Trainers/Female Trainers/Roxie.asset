@@ -14,6 +14,6 @@ MonoBehaviour:
   name: Roxie
   age: 11
   gender: 1
-  ds: {fileID: 0}
+  ds: {fileID: 11400000, guid: 90ad6335d4cb64c48aee2a5115fc4a04, type: 2}
   pokemon: []
   personality: 2

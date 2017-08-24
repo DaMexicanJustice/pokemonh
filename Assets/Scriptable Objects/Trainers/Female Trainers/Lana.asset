@@ -14,6 +14,6 @@ MonoBehaviour:
   name: Lana
   age: 11
   gender: 1
-  ds: {fileID: 0}
+  ds: {fileID: 11400000, guid: d7bf049f8ba11094c9ee2c47e50b2a7b, type: 2}
   pokemon: []
   personality: 0

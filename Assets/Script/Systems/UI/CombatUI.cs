@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CombatUI : MonoBehaviour {
+public class CombatUI : BaseUI {
+	#region implemented abstract members of BaseUI
 
-	// Use this for initialization
-	void Start () {
-		
+	public override void Hide ()
+	{
+		gameObject.SetActive (false);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public override void Show ()
+	{
+		gameObject.SetActive (true);
 	}
+
+	#endregion
+
 }

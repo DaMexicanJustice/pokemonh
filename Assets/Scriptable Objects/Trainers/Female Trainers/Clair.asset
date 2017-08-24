@@ -14,6 +14,6 @@ MonoBehaviour:
   name: Clair
   age: 19
   gender: 1
-  ds: {fileID: 0}
+  ds: {fileID: 11400000, guid: 2dcf97dd18257634dbc7758c6fc3c9cd, type: 2}
   pokemon: []
   personality: 2

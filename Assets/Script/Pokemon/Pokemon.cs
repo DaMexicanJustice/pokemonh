@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable, CreateAssetMenu(fileName="New Pokémon", menuName = "Pokemon_H/Pokemon/Pokemon", order=0)]
 public class Pokemon : ScriptableObject {
@@ -10,7 +11,7 @@ public class Pokemon : ScriptableObject {
 		MALE, FEMALE
 	}
 	public Gender gender;
-
+	public Sprite sprite;
 	public enum Type {
 		NORMAL, FIRE, WATER, ELECTRIC, GRASS, 
 		ICE, FIGHTING, POISON, GROUND, FLYING,
@@ -21,15 +22,10 @@ public class Pokemon : ScriptableObject {
 
 	public List<Move> moves;
 
-	private PokemonTypeMaster ptm;
+	private PokemonTypeMaster ptm = new PokemonTypeMaster();
 
 	public int maxHP;
-	private int curHP;
-
-	public Pokemon() {
-		ptm = new PokemonTypeMaster ();
-		curHP = maxHP;
-	}
+	public int curHP;
 
 	public bool IsStrongAgainst(Move move) {
 		// If my Eletric is strong against your Water, I take half damage
@@ -41,7 +37,8 @@ public class Pokemon : ScriptableObject {
 		return ptm.IsStrongAgainst (move.type.ToString (), type.ToString ());
 	}
 
-	public void TakeDamage(int value, Move move) {
+	public void TakeDamage(Move move) {
+		int value = move.damage;
 		if (IsStrongAgainst (move)) {
 			value = Mathf.RoundToInt(value / 2);
 		} else if (IsWeakAgainst(move)) {

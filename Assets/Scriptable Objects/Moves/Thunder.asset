@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c098e939152fe314d98c4a817d68e0bf, type: 3}
   m_Name: Thunder
   m_EditorClassIdentifier: 
-  name: 
+  name: Thunder
   damage: 50
   pp: 5
   type: 3

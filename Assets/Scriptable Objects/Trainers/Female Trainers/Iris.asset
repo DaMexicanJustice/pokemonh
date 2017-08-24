@@ -14,6 +14,6 @@ MonoBehaviour:
   name: Iris
   age: 10
   gender: 1
-  ds: {fileID: 0}
+  ds: {fileID: 11400000, guid: 6a56c1d690de174438f938b48a2c7389, type: 2}
   pokemon: []
   personality: 0
