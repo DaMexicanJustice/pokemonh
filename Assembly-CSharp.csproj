@@ -57,6 +57,7 @@
      <Compile Include="Assets\Script\Player.cs" />
      <Compile Include="Assets\Script\Pokemon\Move.cs" />
      <Compile Include="Assets\Script\Pokemon\Pokemon.cs" />
+     <Compile Include="Assets\Script\Systems\Character Creation\CharacterCreator.cs" />
      <Compile Include="Assets\Script\Systems\Combat\CombatMaster.cs" />
      <Compile Include="Assets\Script\Systems\Dialogue\CombatStep.cs" />
      <Compile Include="Assets\Script\Systems\Dialogue\DialogueMaster.cs" />
@@ -73,7 +74,9 @@
      <Compile Include="Assets\Script\Systems\Utils\BattleTest.cs" />
      <Compile Include="Assets\Script\Systems\Utils\FaintAnimation.cs" />
      <Compile Include="Assets\Script\Systems\Utils\FontAdjuster.cs" />
+     <Compile Include="Assets\Script\Systems\Utils\IconCameraFacer.cs" />
      <Compile Include="Assets\Script\Systems\Utils\RotationScript.cs" />
+     <Compile Include="Assets\Script\Systems\Utils\StarterSelector.cs" />
      <Compile Include="Assets\Script\Town\Spot.cs" />
      <Compile Include="Assets\Script\Town\Town.cs" />
      <Compile Include="Assets\Script\Town\TownMaster.cs" />

@@ -14,11 +14,11 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 5667fb372c2b292ccdec2a31aaac98fa UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 5667fb372c2b292ccdec2a31aaac98fa UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 c24a21b131bfa67be1162db2cba4b52b UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Player
+67830a7836c85a9586bcbbb8323f977b Assembly-CSharp.dll:.Player
 deea98fa09ba2d4b5ef6ef1460725dad Assembly-CSharp.dll:.FemaleTrainer
 f789b61e689bef8d69fe47b484cc6672 Assembly-CSharp.dll:.BattleTest
 bab96f866ff9489445ceccaab341efea Assembly-CSharp.dll:.GameMaster
-1a341bfc024e69b47ee7e01e350250b2 Assembly-CSharp.dll:.DialogueMaster
+87df8cf22fe6f7b67c54772a7f10acd2 Assembly-CSharp.dll:.DialogueMaster
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -84,6 +84,7 @@ f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 92538c7344f08bc7e722abe3e2f5a619 Assembly-CSharp.dll:.BaseCharacter
+6db0440ca685cb789345ee42eeb4c639 Assembly-CSharp.dll:.FaintAnimation
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 cac917711d0e84d412d48737b6fc9ae7 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 706b890efe0a474d76b40e459ddb3e76 UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -120,6 +121,8 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.RotationScript
 ac6f42fe059202437a63d5325e04eef4 Assembly-CSharp.dll:.Town
 0873bb158d97d0d20ea517571ea2abd7 Assembly-CSharp.dll:.DialogueStep
+26d87bdbbafb4ce3c38fbef55a4c4f2e Assembly-CSharp.dll:.CombatMaster
+a37299bbac5b95e4dbbaf258ca5ecbc6 Assembly-CSharp.dll:.CombatStep
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CombatUI
 9f0d4ea206ab48b28d52c0a70c438a4b Assembly-CSharp.dll:.Move
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.TownUI
@@ -149,4 +152,4 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.OverworldUI
 7e100b9f1b8e6c6c8258b03eb05ce166 Assembly-CSharp.dll:.Trainer
 87b3b750e93eb3b55364b0483ccda3b7 Assembly-CSharp.dll:.OverworldMaster
-d073f541d61f2f51382d8015a31bb4ee Assembly-CSharp.dll:.Pokemon
+01b2c3ba11fc50608be4796d5e58c573 Assembly-CSharp.dll:.Pokemon
