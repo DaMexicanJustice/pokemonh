@@ -16,6 +16,8 @@ public class DialogueMaster : MonoBehaviour {
 	public Text characterDialogue;
 
 	public ConversationUI ui;
+	public CombatUI combatUi = null;
+	public CombatMaster cm = null;
 
 	void Awake() {
 		ui = gameObject.GetComponent<ConversationUI> ();
@@ -34,6 +36,14 @@ public class DialogueMaster : MonoBehaviour {
 	public void NextDialogueStep(int idx) {
 		currentStep = currentStep.connectedSteps [idx];
 		ClearPrevious ();
+		if (currentStep as CombatStep != null) {
+			List<Pokemon> pokemon = (currentStep as CombatStep).ft.pokemon;
+			cm.ePokemon = pokemon [0];
+			cm.pPokemon = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ().pokemon;
+			cm.Init ();
+			combatUi.Show ();
+		} 
+
 		SetupPaths ();
 		SetupDetails ();
 	}

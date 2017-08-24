@@ -14,7 +14,7 @@ MonoBehaviour:
   connectedSteps:
   - {fileID: 11400000, guid: 873b415161e720d4e8ca2d25b644ef71, type: 2}
   - {fileID: 11400000, guid: 090acfb7d10056a40a531b768a12a97c, type: 2}
-  - {fileID: 11400000, guid: 090acfb7d10056a40a531b768a12a97c, type: 2}
+  - {fileID: 11400000, guid: 847084d381ab0c1439e017d6b88d359a, type: 2}
   contextTag: Your Purpose
   leftBranchTag: Talk
   middleBranchTag: Sex

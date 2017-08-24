@@ -15,5 +15,6 @@ MonoBehaviour:
   age: 15
   gender: 1
   ds: {fileID: 11400000, guid: c6db0deed704d0f4b855c6117ac79b1d, type: 2}
-  pokemon: []
+  pokemon:
+  - {fileID: 11400000, guid: 4e4d1f754521632459fe884b2ca51e31, type: 2}
   personality: 0

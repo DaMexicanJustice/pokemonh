@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125e70e65c117d3439882923f14c2042, type: 3}
+  m_Name: Combat Step
+  m_EditorClassIdentifier: 
+  connectedSteps:
+  - {fileID: 11400000, guid: ecf14ac424794664cb21b162a2ceb251, type: 2}
+  - {fileID: 11400000, guid: 4ba1c521fd8c36847b4fd1420e447ab9, type: 2}
+  contextTag: Initiate Combat
+  leftBranchTag: 
+  middleBranchTag: 
+  rightBranchTag: 
+  dialogueText: 
+  background: {fileID: 0}
+  character: {fileID: 0}
+  playerWonCombat: 0
+  ft: {fileID: 11400000, guid: d15cca3fc88123f43979330964305f71, type: 2}

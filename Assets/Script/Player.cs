@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+	public Pokemon pokemon;
+
 	// Use this for initialization
 	void Start () {
 		

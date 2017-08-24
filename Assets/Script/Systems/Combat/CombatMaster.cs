@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CombatMaster : MonoBehaviour
 {
+	public DialogueMaster dm;
 
 	public Slider enemyHealthSlider;
 	public Slider playerHealthSlider;
@@ -90,6 +91,7 @@ public class CombatMaster : MonoBehaviour
 			UpdateCombatText (p, move);
 			if (p.IsKO ()) {
 				PlayKOAnimation (p);
+				return;
 			}
 			Invoke ("EnemyTurn", 2f);
 			isPlayersTurn = false;
@@ -102,12 +104,13 @@ public class CombatMaster : MonoBehaviour
 		pPokemon.TakeDamage (move);
 		enemyHealthSlider.value = ePokemon.curHP;
 		playerHealthSlider.value = pPokemon.curHP;
-		UpdateCombatText (ePokemon, move);
+		UpdateCombatText (pPokemon, move);
 		if (pPokemon.IsKO ()) {
 			PlayKOAnimation (pPokemon, true);
+		} else {
+			isPlayersTurn = true;
+			AllowInput ();
 		}
-		isPlayersTurn = true;
-		AllowInput ();
 	}
 
 	public void PlayKOAnimation (Pokemon p, bool isPlayer=false)
@@ -124,6 +127,11 @@ public class CombatMaster : MonoBehaviour
 	private void ExitCombat ()
 	{
 		GetComponent<CombatUI> ().Hide ();
+		if (isPlayersTurn) {
+			dm.NextDialogueStep (1);
+		} else {
+			dm.NextDialogueStep (0);
+		}
 	}
 
 	private void AllowInput() {

@@ -14,7 +14,9 @@ public class PokemonTypeMaster {
 			return true;
 		} else if (type.Equals ("fire") && otherType.Equals ("bug")) {
 			return true;
-		} else if (type.Equals ("water") && otherType.Equals ("fire")) {
+		} else if (type.Equals ("fire") && otherType.Equals ("steel")) {
+			return true;
+		}  else if (type.Equals ("water") && otherType.Equals ("fire")) {
 			return true;
 		} else if (type.Equals ("water") && otherType.Equals ("rock")) {
 			return true;
