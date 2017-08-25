@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: Thundershock
   m_EditorClassIdentifier: 
   name: Thundershock
-  damage: 20
+  damage: 30
   pp: 30
   type: 3

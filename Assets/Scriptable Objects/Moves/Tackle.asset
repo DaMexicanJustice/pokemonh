@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: Tackle
   m_EditorClassIdentifier: 
   name: Tackle
-  damage: 20
+  damage: 30
   pp: 20
   type: 0

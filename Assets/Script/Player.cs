@@ -5,14 +5,10 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
 	public Pokemon pokemon;
+	public string name;
+	public string age;
+	public string gender;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public BadgeCollection bCollection = new BadgeCollection();
+
 }

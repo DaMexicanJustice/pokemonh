@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: Flamethrower
   m_EditorClassIdentifier: 
   name: Flamethrower
-  damage: 40
+  damage: 50
   pp: 20
   type: 1
