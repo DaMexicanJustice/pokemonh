@@ -12,7 +12,6 @@ public class TownMaster : MonoBehaviour {
 	public Image background;
 	public Text place;
 	public Text description;
-	public TownUI ui;
 
 	public GameMaster gm;
 
@@ -40,7 +39,6 @@ public class TownMaster : MonoBehaviour {
 	}
 
 	public void Init() {
-		ui = GetComponent<TownUI> ();
 		background.sprite = town.background;
 		place.text = town.name;
 		description.text = town.description;
@@ -48,7 +46,6 @@ public class TownMaster : MonoBehaviour {
 	}
 
 	public void InitSpot() {
-		ui = GetComponent<TownUI> ();
 		background.sprite = spot.background;
 		place.text = spot.name;
 		description.text = spot.description;

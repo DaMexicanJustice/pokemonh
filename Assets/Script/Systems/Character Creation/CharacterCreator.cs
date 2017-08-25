@@ -5,17 +5,25 @@ using UnityEngine.UI;
 
 public class CharacterCreator : MonoBehaviour {
 
-	private List<string> tutorialText;
 	public Text blueText; 
+	public List<string> tutorialText;
 	public Button btn;
+	public Text pName;
+	public Text pAge;
+	public Text pGender;
+
 	int idx = 0;
 	int selector = 0;
+	public float textSpeed;
+
+	public Pokemon flareon;
+	public Pokemon vaporeon;
+	public Pokemon jolteon;
+	public StarterSelector starterIdx;
 
 	// Use this for initialization
 	void Awake () {
-		tutorialText = new List<string> ();
 		Init ();
-		InvokeRepeating ("TypeText", 0, 0.07f);
 	}
 
 	// Update is called once per frame
@@ -38,10 +46,12 @@ public class CharacterCreator : MonoBehaviour {
 		} else {
 			CancelInvoke ();
 			btn.GetComponentInChildren<Text>().text = "Send";
+			btn.onClick.AddListener ( () =>  Submit() );
 		}
 	}
 
 	public void Init() {
+		tutorialText = new List<string> ();
 		tutorialText.Add ("Hello! Sorry to keep you waiting! Welcome to the world of Pokémon!");
 		tutorialText.Add ("My name is DMJ. People call me the Pokémon pimp");
 		tutorialText.Add ("You are about to step into the world of Pokémon H.");
@@ -55,5 +65,37 @@ public class CharacterCreator : MonoBehaviour {
 		tutorialText.Add ("-- And yes, you can breed Pokémon too ;D");
 		tutorialText.Add ("Well what are you waiting for? Gotta fuck em' all!");
 		tutorialText.Add ("Ahem. So, are you a boy or a girl? See the green screen on your right? Send me your info will you?");
+		InvokeRepeating ("TypeText", 0, textSpeed);
 	}
+
+	public void Submit() {
+		if (!fieldsAreEmpty ()) {
+			CharacterCreationUI.instance.Hide ();
+			OverworldUI.instance.Show ();
+			Player player = GameObject.FindGameObjectWithTag ("Player").AddComponent<Player> ();
+			player.name = pName.text;
+			player.age = pAge.text;
+			player.gender = pGender.text;
+			int idx = starterIdx.selection;
+			switch (idx) {
+			case 0:
+				player.pokemon = flareon;
+				break;
+			case 1:
+				player.pokemon = vaporeon;
+				break;
+			case 2:
+				player.pokemon = jolteon;
+				break;
+			}
+		} else {
+			blueText.text = "Thank you! Huh, wait. You seem to have sent me empty data. Please try again ---->";
+		}
+	}
+
+	private bool fieldsAreEmpty() {
+		return (pName.text == "Name" || pAge.text == "Age" || pGender.text == "Gender");
+	}
+
+
 }

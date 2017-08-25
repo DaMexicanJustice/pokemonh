@@ -15,12 +15,10 @@ public class DialogueMaster : MonoBehaviour {
 	public Text characterName;
 	public Text characterDialogue;
 
-	public ConversationUI ui;
-	public CombatUI combatUi = null;
 	public CombatMaster cm = null;
 
 	void Awake() {
-		ui = gameObject.GetComponent<ConversationUI> ();
+		
 	}
 
 	void Update() {
@@ -28,7 +26,7 @@ public class DialogueMaster : MonoBehaviour {
 	}
 
 	public void Init() {
-		ui = GetComponent<ConversationUI> ();
+		
 		SetupPaths ();
 		SetupDetails ();
 	}
@@ -41,7 +39,7 @@ public class DialogueMaster : MonoBehaviour {
 			cm.ePokemon = pokemon [0];
 			cm.pPokemon = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ().pokemon;
 			cm.Init ();
-			combatUi.Show ();
+			CombatUI.instance.Show ();
 		} 
 
 		SetupPaths ();

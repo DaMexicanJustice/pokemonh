@@ -85,10 +85,10 @@ public class CombatMaster : MonoBehaviour
 	{
 		
 		if (isPlayersTurn) {
+			UpdateCombatText (pPokemon, move);
 			p.TakeDamage (move);
 			enemyHealthSlider.value = ePokemon.curHP;
 			playerHealthSlider.value = pPokemon.curHP;
-			UpdateCombatText (p, move);
 			if (p.IsKO ()) {
 				PlayKOAnimation (p);
 				return;
@@ -96,15 +96,15 @@ public class CombatMaster : MonoBehaviour
 			Invoke ("EnemyTurn", 2f);
 			isPlayersTurn = false;
 			AllowInput ();
-		}
+		} 
 	}
 
 	public void EnemyTurn() {
 		Move move = ePokemon.UseRandomMove ();
+		UpdateCombatText (ePokemon, move);
 		pPokemon.TakeDamage (move);
 		enemyHealthSlider.value = ePokemon.curHP;
 		playerHealthSlider.value = pPokemon.curHP;
-		UpdateCombatText (pPokemon, move);
 		if (pPokemon.IsKO ()) {
 			PlayKOAnimation (pPokemon, true);
 		} else {
@@ -126,7 +126,7 @@ public class CombatMaster : MonoBehaviour
 
 	private void ExitCombat ()
 	{
-		GetComponent<CombatUI> ().Hide ();
+		CombatUI.instance.Hide ();
 		if (isPlayersTurn) {
 			dm.NextDialogueStep (1);
 		} else {

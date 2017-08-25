@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class GameMaster : MonoBehaviour {
 
+	public Player player;
+
 	public DialogueMaster dm;
 	public TownMaster tm;
 	public OverworldMaster om;
+	public CharacterCreator cc;
 	public List<Town> towns;
 
 	public BaseCharacter testChar;
@@ -16,32 +19,28 @@ public class GameMaster : MonoBehaviour {
 		CONVERSATION, COMBAT, OVERWORLD, TOWN
 	}
 	public GameState state;
+	public BadgeHandler bHandler;
 
 	void Awake() {
 		state = GameState.OVERWORLD;
 		towns = om.towns;
+
 	}
 
 	void Start() {
-		/*
-		tm.town = testTown;
-		tm.SetupSpots ();
-		tm.Init ();
-		tm.ui.Show ();
-		*/
-		om.Init ();
-		om.ui.Show ();
-
+		HideUI ();
+		cc.Init ();
+		CharacterCreationUI.instance.Show ();
 	}
 
 	void Update() {
-
+		
 	}
 
 	public void HideUI() {
-		dm.ui.Hide ();
-		tm.ui.Hide ();
-		om.ui.Hide ();
+		ConversationUI.instance.Hide ();
+		TownUI.instance.Hide ();
+		OverworldUI.instance.Hide ();
 	}
 
 	public void SetInteractingWithCharacter(BaseCharacter bc) {
@@ -49,7 +48,7 @@ public class GameMaster : MonoBehaviour {
 		dm.currentStep = bc.ds;
 		dm.Init ();
 		HideUI ();
-		dm.ui.Show ();
+		ConversationUI.instance.Show ();
 	}
 
 	public void DoneInteractingWithCharacter() {
@@ -58,59 +57,74 @@ public class GameMaster : MonoBehaviour {
 	}
 
 	public void MoveToCity() {
-		om.ui.Hide ();
+		OverworldUI.instance.Hide ();
 		tm.town = towns [1];
 		tm.Init ();
-		tm.ui.Show ();
+		TownUI.instance.Show ();
 	}
 
 	public void MoveToBeach() {
-		om.ui.Hide ();
+		OverworldUI.instance.Hide ();
 		tm.town = towns [0];
 		tm.Init ();
-		tm.ui.Show ();
+		TownUI.instance.Show ();
 	}
 
 	public void MoveToMountain() {
-		om.ui.Hide ();
+		OverworldUI.instance.Hide ();
 		tm.town = towns [6];
 		tm.Init ();
-		tm.ui.Show ();
+		TownUI.instance.Show ();
 	}
 
 	public void MoveToIslands() {
-		om.ui.Hide ();
+		OverworldUI.instance.Hide ();
 		tm.town = towns [5];
 		tm.Init ();
-		tm.ui.Show ();
+		TownUI.instance.Show ();
 	}
 
 	public void MoveToGlacier() {
-		om.ui.Hide ();
+		OverworldUI.instance.Hide ();
 		tm.town = towns [3];
 		tm.Init ();
-		tm.ui.Show ();
+		TownUI.instance.Show ();
 	}
 
 	public void MoveToForest() {
-		om.ui.Hide ();
+		OverworldUI.instance.Hide ();
 		tm.town = towns [2];
 		tm.Init ();
-		tm.ui.Show ();
+		TownUI.instance.Show ();
 	}
 
 	public void MoveToTrainStation() {
-		om.ui.Hide ();
+		OverworldUI.instance.Hide ();
 		tm.town = towns [7];
 		tm.Init ();
-		tm.ui.Show ();
+		TownUI.instance.Show ();
 	}
 
 	public void MoveToHotSprings() {
-		om.ui.Hide ();
+		OverworldUI.instance.Hide ();
 		tm.town = towns [4];
 		tm.Init ();
-		tm.ui.Show ();
+		TownUI.instance.Show ();
+	}
+
+	public void GiveBadgeToPlayer(string badge) {
+		int idx = player.bCollection.FindBadgeIndexByBadgeType (badge) + 1;
+		player.bCollection.badges [idx] = true;
+		Debug.Log (player.bCollection.badges [idx]);
+		CheckBadges (player.bCollection.badges);
+	}
+
+	public void CheckBadges(List<bool> badges) {
+		foreach (bool b in badges) {
+			if (b) {
+				bHandler.EnableBadge ( badges.IndexOf(b) );
+			}
+		}
 	}
 
 }
