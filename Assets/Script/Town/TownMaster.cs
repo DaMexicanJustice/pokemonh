@@ -33,8 +33,15 @@ public class TownMaster : MonoBehaviour {
 		foreach (BaseCharacter bs in characters) {
 			GameObject btn = Instantiate (btnPrefab, btnsParent);
 			btn.GetComponentInChildren<Text> ().text = "Talk  to  " + bs.name;
-			btn.GetComponent<Button>().onClick.AddListener(delegate{TalkToCharacter(bs);});
+			if (bs.ds.connectedSteps.Count > 0) {
+				btn.GetComponent<Button> ().onClick.AddListener (delegate {
+					TalkToCharacter (bs);
+				});
+			} else {
+				description.text = bs.name +  " Not yet implemented!";
+			}
 			idx++;
+
 		}
 	}
 

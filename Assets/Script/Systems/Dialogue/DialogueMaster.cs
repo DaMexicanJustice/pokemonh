@@ -41,9 +41,10 @@ public class DialogueMaster : MonoBehaviour {
 			cm.Init ();
 			CombatUI.instance.Show ();
 		} 
-
-		SetupPaths ();
+			
 		SetupDetails ();
+		SetupPaths ();
+		CheckSpecialCase ();
 	}
 
 	public void SetupDetails() {
@@ -78,6 +79,33 @@ public class DialogueMaster : MonoBehaviour {
 			btn.GetComponentInChildren<Text> ().text = currentStep.rightBranchTag;
 			btn.GetComponent<Button>().onClick.AddListener(delegate{NextDialogueStep(2);});
 		}
+
+		if (currentStep.connectedSteps.Count <= 0) {
+			characterDialogue.text = "Branch under development. Returning to Town";
+			Invoke ("ExitConversation", 2f);
+		}
+
+	}
+
+	private void CheckSpecialCase() {
+		switch (currentStep.contextTag.ToLower()) {
+		case "end":
+			ConversationUI.instance.Hide ();
+			TownUI.instance.Show ();
+			break;
+		case "badge":
+			if (bc as FemaleTrainer != null) {
+				Pokemon.Type pt = (bc as FemaleTrainer).pokemon [0].type;
+				Debug.Log ("Claiming badge: " + pt.ToString());
+				GameMaster.instance.GiveBadgeToPlayer (pt.ToString ());
+			}
+			break;
+		}
+	}
+
+	private void ExitConversation() {
+		ConversationUI.instance.Hide ();
+		TownUI.instance.Show ();
 	}
 
 }

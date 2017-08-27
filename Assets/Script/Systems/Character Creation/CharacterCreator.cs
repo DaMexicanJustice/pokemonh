@@ -88,6 +88,7 @@ public class CharacterCreator : MonoBehaviour {
 				player.pokemon = jolteon;
 				break;
 			}
+			GameMaster.instance.player = player;
 		} else {
 			blueText.text = "Thank you! Huh, wait. You seem to have sent me empty data. Please try again ---->";
 		}

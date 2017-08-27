@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameMaster : MonoBehaviour {
 
+	public static GameMaster instance;
+
 	public Player player;
 
 	public DialogueMaster dm;
@@ -22,6 +24,13 @@ public class GameMaster : MonoBehaviour {
 	public BadgeHandler bHandler;
 
 	void Awake() {
+
+		if (instance) {
+			Destroy (this);
+		} else {
+			instance = this;
+		}
+
 		state = GameState.OVERWORLD;
 		towns = om.towns;
 
@@ -113,7 +122,7 @@ public class GameMaster : MonoBehaviour {
 	}
 
 	public void GiveBadgeToPlayer(string badge) {
-		int idx = player.bCollection.FindBadgeIndexByBadgeType (badge) + 1;
+		int idx = player.bCollection.FindBadgeIndexByBadgeType (badge);
 		player.bCollection.badges [idx] = true;
 		Debug.Log (player.bCollection.badges [idx]);
 		CheckBadges (player.bCollection.badges);
@@ -122,7 +131,7 @@ public class GameMaster : MonoBehaviour {
 	public void CheckBadges(List<bool> badges) {
 		foreach (bool b in badges) {
 			if (b) {
-				bHandler.EnableBadge ( badges.IndexOf(b) );
+				bHandler.EnableBadge ( badges.IndexOf(b) + 1 );
 			}
 		}
 	}

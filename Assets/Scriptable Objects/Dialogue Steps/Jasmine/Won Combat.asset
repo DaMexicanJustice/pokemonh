@@ -14,7 +14,7 @@ MonoBehaviour:
   connectedSteps:
   - {fileID: 11400000, guid: cef6a64e12e078049b8bd17c5746e810, type: 2}
   - {fileID: 11400000, guid: c42027cf16513dd4d9c8eafe14b43f07, type: 2}
-  contextTag: Won Combat
+  contextTag: badge
   leftBranchTag: Demand Reward
   middleBranchTag: Claim Badge
   rightBranchTag: 

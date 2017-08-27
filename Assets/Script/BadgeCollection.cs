@@ -27,7 +27,7 @@ public class BadgeCollection {
 	}
 
 	public int FindBadgeIndexByBadgeType(string str) {
-		switch (str) {
+		switch (str.ToLower()) {
 		case "grass":
 			return 0;
 			break;
@@ -49,7 +49,7 @@ public class BadgeCollection {
 		case "ice":
 			return 6;
 			break;
-		case "metal":
+		case "steel":
 			return 7;
 			break;
 		default:
