@@ -14,6 +14,7 @@ MonoBehaviour:
   name: Jolteon
   gender: 0
   sprite: {fileID: 21300000, guid: 42d8282edc2168b4d90bd6fd909448b2, type: 3}
+  controller: {fileID: 9100000, guid: 5abf345900d03b446a50c0bef719b30c, type: 2}
   type: 3
   moves:
   - {fileID: 11400000, guid: 893c7cd687ccb1f4a960904d158b9dfe, type: 2}

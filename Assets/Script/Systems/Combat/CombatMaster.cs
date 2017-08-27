@@ -38,7 +38,7 @@ public class CombatMaster : MonoBehaviour
 		enemyHPText.text = "HP: " + enemyHealthSlider.value + " / 100";
 		playerHPText.text = "HP: " + playerHealthSlider.value + " / 100";
 		enemyPokemonImage.sprite = ePokemon.sprite;
-		playerPokemonImage.sprite = pPokemon.sprite;
+		playerPokemonImage.GetComponent<Animator> ().runtimeAnimatorController = pPokemon.controller;
 	}
 
 	public void UpdateCombatText (Pokemon p, Move m)
@@ -83,12 +83,10 @@ public class CombatMaster : MonoBehaviour
 
 	public void Attack (Move move, Pokemon p)
 	{
-		
 		if (isPlayersTurn) {
 			UpdateCombatText (pPokemon, move);
 			p.TakeDamage (move);
-			enemyHealthSlider.value = ePokemon.curHP;
-			playerHealthSlider.value = pPokemon.curHP;
+			StartCoroutine (DecreseSlider (enemyHealthSlider, p));
 			if (p.IsKO ()) {
 				PlayKOAnimation (p);
 				return;
@@ -98,15 +96,15 @@ public class CombatMaster : MonoBehaviour
 			AllowInput ();
 		} 
 	}
-
+		
 	public void EnemyTurn() {
 		Move move = ePokemon.UseRandomMove ();
 		UpdateCombatText (ePokemon, move);
 		pPokemon.TakeDamage (move);
-		enemyHealthSlider.value = ePokemon.curHP;
-		playerHealthSlider.value = pPokemon.curHP;
+		StartCoroutine (DecreseSlider (playerHealthSlider, pPokemon));
 		if (pPokemon.IsKO ()) {
 			PlayKOAnimation (pPokemon, true);
+			return;
 		} else {
 			isPlayersTurn = true;
 			AllowInput ();
@@ -115,7 +113,7 @@ public class CombatMaster : MonoBehaviour
 
 	public void PlayKOAnimation (Pokemon p, bool isPlayer=false)
 	{
-		Invoke ("ExitCombat", 3f);
+		Invoke ("ExitCombat", 3.5f);
 		combatText.text = p.name + " has been defeated!";
 		if (!isPlayer) {
 			enemyPokemonImage.gameObject.AddComponent<FaintAnimation> ();
@@ -146,6 +144,22 @@ public class CombatMaster : MonoBehaviour
 				btn.interactable = true;
 			}
 		}
+	}
+
+	IEnumerator DecreseSlider(Slider slider, Pokemon pokemon)
+	{
+		if (slider != null)
+		{
+			float timeSlice = (slider.value / 100);
+			while (slider.value >= 0)
+			{
+				slider.value -= timeSlice;
+				yield return new WaitForSeconds(0.02f);
+				if (slider.value <= pokemon.curHP)
+					break;
+			}
+		}
+		yield return null;
 	}
 
 }

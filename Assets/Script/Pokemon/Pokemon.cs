@@ -12,6 +12,7 @@ public class Pokemon : ScriptableObject {
 	}
 	public Gender gender;
 	public Sprite sprite;
+	public RuntimeAnimatorController controller;
 	public enum Type {
 		NORMAL, FIRE, WATER, ELECTRIC, GRASS, 
 		ICE, FIGHTING, POISON, GROUND, FLYING,

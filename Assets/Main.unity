@@ -9616,6 +9616,7 @@ GameObject:
   - component: {fileID: 2054659223}
   - component: {fileID: 2054659225}
   - component: {fileID: 2054659224}
+  - component: {fileID: 2054659226}
   m_Layer: 5
   m_Name: Pokemon Sprite
   m_TagString: Untagged
@@ -9674,6 +9675,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2054659222}
+--- !u!95 &2054659226
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2054659222}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2057821110
 GameObject:
   m_ObjectHideFlags: 0
