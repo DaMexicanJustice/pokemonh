@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DialogueMaster : MonoBehaviour {
 
 	public static DialogueMaster instance;
+	private ScriptableToInstance scriptableToInstance;
 
 	public BaseCharacter bc;
 	public DialogueStep currentStep;
@@ -24,10 +25,11 @@ public class DialogueMaster : MonoBehaviour {
 			instance = this;
 		}
 		Debug.Log ("DialogueMaster: " + instance);
+		scriptableToInstance = new ScriptableToInstance ();
 	}
 
 	void Update() {
-		
+		 
 	}
 
 	public void Init() {
@@ -39,17 +41,20 @@ public class DialogueMaster : MonoBehaviour {
 		currentStep = currentStep.connectedSteps [idx];
 		ClearPrevious ();
 		if (currentStep as CombatStep != null) {
-			CombatMaster.instance.ePokemon = (bc as Trainer).pokemon [0];
-			// Player Pokemon
-			CombatMaster.instance.pPokemon = Player.instance.pokemon;
-			// Start Combat
-			CombatMaster.instance.Init ();
+			PokemonInstance pInstance = scriptableToInstance.GetInstanceOfScriptableObject ((bc as Trainer).pokemon [0]);
+			CombatMaster.instance.Init (Player.instance.pokemon, pInstance);
 			CombatUI.instance.Show ();
 		} 
 			
 		SetupDetails ();
-		SetupPaths ();
-		CheckSpecialCase ();
+
+		if (currentStep.connectedSteps.Count <= 0) {
+			characterDialogue.text = "Branch under development. Returning to Town";
+			Invoke ("ExitConversation", 2f);
+		} else {
+			SetupPaths ();
+			CheckSpecialCase ();
+		}
 	}
 
 	public void SetupDetails() {
@@ -85,22 +90,16 @@ public class DialogueMaster : MonoBehaviour {
 			btn.GetComponent<Button>().onClick.AddListener(delegate{NextDialogueStep(2);});
 		}
 
-		if (currentStep.connectedSteps.Count <= 0) {
-			characterDialogue.text = "Branch under development. Returning to Town";
-			Invoke ("ExitConversation", 2f);
-		}
-
 	}
 
 	private void CheckSpecialCase() {
 		switch (currentStep.contextTag.ToLower()) {
 		case "end":
-			ConversationUI.instance.Hide ();
-			TownUI.instance.Show ();
+			ExitConversation();
 			break;
 		case "badge":
 			if (bc as FemaleTrainer != null) {
-				Pokemon.Type pt = (bc as FemaleTrainer).pokemon [0].type;
+				PokemonInstance.Type pt = scriptableToInstance.GetInstanceOfScriptableObject ((bc as FemaleTrainer).pokemon [0]).type;
 				Debug.Log ("Claiming badge: " + pt.ToString());
 				GameMaster.instance.GiveBadgeToPlayer (pt.ToString ());
 			}
@@ -111,6 +110,8 @@ public class DialogueMaster : MonoBehaviour {
 	private void ExitConversation() {
 		ConversationUI.instance.Hide ();
 		TownUI.instance.Show ();
+		currentStep = null;
+		bc = null;
 	}
 
 }

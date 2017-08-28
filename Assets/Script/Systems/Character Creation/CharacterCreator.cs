@@ -21,9 +21,12 @@ public class CharacterCreator : MonoBehaviour {
 	public Pokemon jolteon;
 	public StarterSelector starterIdx;
 
+	private ScriptableToInstance scriptableToInstance;
+
 	// Use this for initialization
 	void Awake () {
 		Init ();
+		scriptableToInstance = new ScriptableToInstance ();
 	}
 
 	// Update is called once per frame
@@ -79,13 +82,16 @@ public class CharacterCreator : MonoBehaviour {
 			int idx = starterIdx.selection;
 			switch (idx) {
 			case 0:
-				player.pokemon = flareon;
+				//player.pokemon = flareon;
+				player.pokemon = scriptableToInstance.GetInstanceOfScriptableObject (flareon);
 				break;
 			case 1:
-				player.pokemon = vaporeon;
+				//player.pokemon = vaporeon;
+				player.pokemon = scriptableToInstance.GetInstanceOfScriptableObject (vaporeon);
 				break;
 			case 2:
-				player.pokemon = jolteon;
+				//player.pokemon = jolteon;
+				player.pokemon = scriptableToInstance.GetInstanceOfScriptableObject (jolteon);
 				break;
 			}
 

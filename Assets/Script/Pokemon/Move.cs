@@ -7,7 +7,6 @@ public class Move : ScriptableObject {
 
 	public string name;
 	public int damage;
-	public int pp;
 	public enum Type {
 		NORMAL, FIRE, WATER, ELECTRIC, GRASS, 
 		ICE, FIGHTING, POISON, GROUND, FLYING,

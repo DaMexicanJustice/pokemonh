@@ -17,9 +17,14 @@ public class FaintAnimation : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-
 		image.color = new Color (image.color.r, image.color.g, image.color.b, image.color.a - 0.01f);
 		transform.position = new Vector3 (transform.position.x-1, transform.position.y-1, transform.position.z);
 
 	}
+
+	public void Expire() {
+		image.color = new Color (image.color.r, image.color.g, image.color.b, 1);
+		Destroy (this);
+	}
+
 }

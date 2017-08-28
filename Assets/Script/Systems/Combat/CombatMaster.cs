@@ -18,8 +18,8 @@ public class CombatMaster : MonoBehaviour
 	public Image enemyPokemonImage;
 	public Image playerPokemonImage;
 
-	public Pokemon ePokemon;
-	public Pokemon pPokemon;
+	public PokemonInstance ePokemon;
+	public PokemonInstance pPokemon;
 
 	public Transform movesParent;
 	public Button moveBtnPrefab;
@@ -38,12 +38,11 @@ public class CombatMaster : MonoBehaviour
 
 	void Update ()
 	{
-		Debug.Log ("Enemy: " + ePokemon.curHP);
-		Debug.Log ("Player: " + pPokemon.curHP);
-	
+		enemyHPText.text = "HP: " + enemyHealthSlider.value + " / 100";
+		playerHPText.text = "HP: " + playerHealthSlider.value + " / 100";
 	}
 
-	public void UpdateCombatText (Pokemon p, Move m)
+	public void UpdateCombatText (PokemonInstance p, Move m)
 	{
 		if (p.IsStrongAgainst (m)) {
 			combatText.text = p.name + " uses " + m.name + "!\n " + m.name + " is not very effectice and deals " + m.damage / 2 + " damage";
@@ -54,30 +53,34 @@ public class CombatMaster : MonoBehaviour
 		}
 	}
 
-	public void Init ()
+	public void Init (PokemonInstance player, PokemonInstance enemy)
 	{
-		ePokemon.curHP = ePokemon.maxHP;
+		ePokemon = enemy;
+		pPokemon = player;
+		// ---------------------------------------------------------------------------------------- //
 		enemyPokemonImage.sprite = ePokemon.sprite;
-		playerPokemonImage.sprite = pPokemon.sprite;
 		enemyPokemonNameText.text = ePokemon.name + " " + GetGenderSymbol (ePokemon);
 		playerPokemonNameText.text = pPokemon.name + " " + GetGenderSymbol (pPokemon);
-		enemyPokemonImage.sprite = ePokemon.sprite;
+
 		playerPokemonImage.GetComponent<Animator> ().runtimeAnimatorController = pPokemon.controller;
-		enemyHPText.text = "HP: " + enemyHealthSlider.value + " / 100";
-		playerHPText.text = "HP: " + playerHealthSlider.value + " / 100";
+
+		enemyHPText.text = "HP: " + ePokemon.curHP + " / 100";
+		playerHPText.text = "HP: " + pPokemon.curHP + " / 100";
+		enemyHealthSlider.value = ePokemon.curHP;
+		playerHealthSlider.value = pPokemon.curHP;
 		SetupMoves (pPokemon);
 	}
 
-	private string GetGenderSymbol (Pokemon p)
+	private string GetGenderSymbol (PokemonInstance p)
 	{
-		if (p.gender == Pokemon.Gender.MALE) {
+		if (p.gender == PokemonInstance.Gender.MALE) {
 			return "♂";
 		} else {
 			return "♀";
 		}
 	}
 
-	private void SetupMoves (Pokemon p)
+	private void SetupMoves (PokemonInstance p)
 	{
 		List<Move> moves = p.moves;
 		foreach (Move move in moves) {
@@ -89,19 +92,15 @@ public class CombatMaster : MonoBehaviour
 		}
 	}
 
-	public void Attack (Move move, Pokemon p)
+	public void Attack (Move move, PokemonInstance p)
 	{
-		if (isPlayersTurn) {
-			UpdateCombatText (pPokemon, move);
-			p.TakeDamage (move);
-			StartCoroutine (DecreseSlider (enemyHealthSlider, p));
-			if (p.IsKO ()) {
-				//PlayKOAnimation (ePokemon);
-				return;
-			}
-			Invoke ("EnemyTurn", 2f);
-			isPlayersTurn = false;
+		UpdateCombatText (pPokemon, move);
+		p.TakeDamage (move);
+		StartCoroutine (DecreaseSlider (enemyHealthSlider, p));
+		if (!p.IsKO ()) {
+			isPlayersTurn = !isPlayersTurn;
 			AllowInput ();
+			Invoke ("EnemyTurn", 2f);
 		} 
 	}
 		
@@ -109,17 +108,14 @@ public class CombatMaster : MonoBehaviour
 		Move move = ePokemon.UseRandomMove ();
 		UpdateCombatText (ePokemon, move);
 		pPokemon.TakeDamage (move);
-		StartCoroutine (DecreseSlider (playerHealthSlider, pPokemon));
-		if (pPokemon.IsKO ()) {
-			//PlayKOAnimation (pPokemon, true);
-			return;
-		} else {
-			isPlayersTurn = true;
+		StartCoroutine (DecreaseSlider (playerHealthSlider, pPokemon));
+		if (!pPokemon.IsKO ()) {
+			isPlayersTurn = !isPlayersTurn;
 			AllowInput ();
-		}
+		} 
 	}
 
-	public void PlayKOAnimation (Pokemon p, bool isPlayer=false)
+	public void PlayKOAnimation (PokemonInstance p, bool isPlayer=false)
 	{
 		Invoke ("ExitCombat", 3f);
 		combatText.text = p.name + " has been defeated!";
@@ -132,11 +128,16 @@ public class CombatMaster : MonoBehaviour
 
 	private void ExitCombat ()
 	{
+		foreach(Transform t in movesParent.transform) {
+			Destroy (t.gameObject);
+		}
 		CombatUI.instance.Hide ();
 		if (isPlayersTurn) {
 			DialogueMaster.instance.NextDialogueStep (1);
+			enemyPokemonImage.gameObject.GetComponent<FaintAnimation> ().Expire ();
 		} else {
 			DialogueMaster.instance.NextDialogueStep (0);
+			playerPokemonImage.gameObject.GetComponent<FaintAnimation> ().Expire ();
 		}
 	}
 
@@ -154,32 +155,25 @@ public class CombatMaster : MonoBehaviour
 		}
 	}
 
-	IEnumerator DecreseSlider(Slider slider, Pokemon pokemon)
+	IEnumerator DecreaseSlider(Slider slider, PokemonInstance pokemon)
 	{
-		if (slider != null)
-		{
-			float timeSlice = (slider.value / 100);
-			while (slider.value >= 0)
-			{
-				slider.value -= timeSlice;
-				enemyHPText.text = "HP: " + enemyHealthSlider.value + " / 100";
-				playerHPText.text = "HP: " + playerHealthSlider.value + " / 100";
-				yield return new WaitForSeconds(0.02f);
-
-				if (slider.value <= 0) {
-					if (isPlayersTurn) {
-						PlayKOAnimation (pokemon);
-					} else {
-						PlayKOAnimation (pokemon, true);
-					}
-				}
-
-				if (slider.value <= pokemon.curHP) {
-					break;
+		float timeSlice = (slider.value / 100);
+		while (true) {
+			Debug.Log (pokemon.curHP);
+			slider.value -= timeSlice;
+			if ( (ePokemon.curHP <= 0 || pPokemon.curHP <= 0) && slider.value <= 0) {
+				if (isPlayersTurn) {
+					PlayKOAnimation (pokemon);
+				} else {
+					PlayKOAnimation (pokemon, true);
 				}
 			}
+
+			if (slider.value <= pokemon.curHP) {
+				break;
+			}
+			yield return new WaitForSeconds(0.02f);
 		}
-		yield return null;
 	}
 
 }
