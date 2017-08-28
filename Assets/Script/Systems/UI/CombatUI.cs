@@ -8,12 +8,11 @@ public class CombatUI : BaseUI {
 	public static CombatUI instance;
 
 	void Awake(){
-		if (instance) {
+		if (instance != null) {
 			Destroy (this);
 		} else {
 			instance = this;
 		}
-		instance.Hide ();
 	}
 
 	public override void Hide ()

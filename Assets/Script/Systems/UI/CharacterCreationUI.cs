@@ -7,7 +7,7 @@ public class CharacterCreationUI : BaseUI {
 	public static CharacterCreationUI instance;
 
 	void Awake(){
-		if (instance) {
+		if (instance != null) {
 			Destroy (this);
 		} else {
 			instance = this;

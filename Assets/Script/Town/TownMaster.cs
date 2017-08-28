@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class TownMaster : MonoBehaviour {
 
+
+	public static TownMaster instance;
 	public Town town;
 	private Spot spot;
 	public Transform btnsParent;
@@ -13,7 +15,14 @@ public class TownMaster : MonoBehaviour {
 	public Text place;
 	public Text description;
 
-	public GameMaster gm;
+	void Awake() {
+		if (instance != null) {
+			Destroy (instance);
+		} else {
+			instance = this;
+		}
+		Debug.Log ("TownMaster: " + instance);
+	}
 
 	public void SetupSpots() {
 		ClearPrevious ();
@@ -72,7 +81,7 @@ public class TownMaster : MonoBehaviour {
 	}
 
 	public void TalkToCharacter(BaseCharacter bc) {
-		gm.SetInteractingWithCharacter (bc);
+		GameMaster.instance.SetInteractingWithCharacter (bc);
 	}
 
 

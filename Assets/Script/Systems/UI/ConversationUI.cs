@@ -8,12 +8,11 @@ public class ConversationUI : BaseUI {
 	public static ConversationUI instance;
 
 	void Awake(){
-		if (instance) {
+		if (instance != null) {
 			Destroy (this);
 		} else {
 			instance = this;
 		}
-		instance.Hide ();
 	}
 
 	public override void Hide ()

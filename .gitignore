@@ -1,0 +1,41 @@
+# =============== #
+# Unity generated #
+# =============== #
+PokemonH/[Tt]emp/
+PokemonH/[Oo]bj/
+PokemonH/[Bb]uilds/
+PokemonH/[Ll]ibrary/
+PokemonH/[Ll]ibrary_ANDROID/
+PokemonH/[Ll]ibrary_PC/
+PokemonH/[Ll]ibrary_IOS/
+PokemonH/sysinfo.txt
+PokemonH/UnityVS/
+PokemonH/UnityVS.meta
+PokemonH/LightingData*
+PokemonH/ReflectionProbe*
+PokemonH/Assets/Scenes/Personal Scenes*
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+PokemonH/[Ee]xported[Oo]bj/
+PokemonH/*.userprefs
+PokemonH/*.csproj
+PokemonH/*.pidb
+PokemonH/*.suo
+PokemonH/*.sln*
+PokemonH/*.user
+PokemonH/*.unityproj
+PokemonH/*.booproj
+
+# ============
+# OS generated
+# ============
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Thumbs.db.meta

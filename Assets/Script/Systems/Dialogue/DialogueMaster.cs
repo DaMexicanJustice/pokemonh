@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class DialogueMaster : MonoBehaviour {
 
+	public static DialogueMaster instance;
+
 	public BaseCharacter bc;
 	public DialogueStep currentStep;
 	public GameObject btnPrefab;
@@ -15,18 +17,20 @@ public class DialogueMaster : MonoBehaviour {
 	public Text characterName;
 	public Text characterDialogue;
 
-	public CombatMaster cm = null;
-
 	void Awake() {
-		
+		if (instance != null) {
+			Destroy (instance);
+		} else {
+			instance = this;
+		}
+		Debug.Log ("DialogueMaster: " + instance);
 	}
 
 	void Update() {
-		//Debug.Log (currentStep.contextTag);
+		
 	}
 
 	public void Init() {
-		
 		SetupPaths ();
 		SetupDetails ();
 	}
@@ -35,10 +39,11 @@ public class DialogueMaster : MonoBehaviour {
 		currentStep = currentStep.connectedSteps [idx];
 		ClearPrevious ();
 		if (currentStep as CombatStep != null) {
-			List<Pokemon> pokemon = (currentStep as CombatStep).ft.pokemon;
-			cm.ePokemon = pokemon [0];
-			cm.pPokemon = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ().pokemon;
-			cm.Init ();
+			CombatMaster.instance.ePokemon = (bc as Trainer).pokemon [0];
+			// Player Pokemon
+			CombatMaster.instance.pPokemon = Player.instance.pokemon;
+			// Start Combat
+			CombatMaster.instance.Init ();
 			CombatUI.instance.Show ();
 		} 
 			

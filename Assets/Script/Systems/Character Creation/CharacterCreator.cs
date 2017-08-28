@@ -88,7 +88,7 @@ public class CharacterCreator : MonoBehaviour {
 				player.pokemon = jolteon;
 				break;
 			}
-			GameMaster.instance.player = player;
+
 		} else {
 			blueText.text = "Thank you! Huh, wait. You seem to have sent me empty data. Please try again ---->";
 		}
@@ -97,6 +97,5 @@ public class CharacterCreator : MonoBehaviour {
 	private bool fieldsAreEmpty() {
 		return (pName.text == "Name" || pAge.text == "Age" || pGender.text == "Gender");
 	}
-
 
 }

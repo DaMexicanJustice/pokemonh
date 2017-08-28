@@ -8,12 +8,11 @@ public class TownUI : BaseUI {
 	public static TownUI instance;
 
 	void Awake(){
-		if (instance) {
+		if (instance != null) {
 			Destroy (this);
 		} else {
 			instance = this;
 		}
-		instance.Hide ();
 	}
 
 	public override void Hide ()

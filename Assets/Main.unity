@@ -6741,7 +6741,6 @@ MonoBehaviour:
   character: {fileID: 2059125175}
   characterName: {fileID: 343879525}
   characterDialogue: {fileID: 1384210581}
-  cm: {fileID: 1662252832}
 --- !u!114 &1563917368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7372,12 +7371,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1662252829}
-  - component: {fileID: 1662252830}
   - component: {fileID: 1662252831}
   - component: {fileID: 1662252832}
   - component: {fileID: 1662252834}
   - component: {fileID: 1662252833}
   - component: {fileID: 1662252835}
+  - component: {fileID: 1662252830}
   m_Layer: 5
   m_Name: Combat HUD
   m_TagString: Untagged
@@ -7449,7 +7448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea3434614fa8294e8f7de98b44b9d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dm: {fileID: 1563917367}
   enemyHealthSlider: {fileID: 1783557784}
   playerHealthSlider: {fileID: 304130435}
   enemyHPText: {fileID: 2104878978}
@@ -8117,9 +8115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  dm: {fileID: 1563917367}
-  tm: {fileID: 1972665692}
-  om: {fileID: 3947205}
   cc: {fileID: 1746911351}
   towns: []
   testChar: {fileID: 0}
@@ -8958,7 +8953,6 @@ MonoBehaviour:
   background: {fileID: 701562429}
   place: {fileID: 2005402682}
   description: {fileID: 1000491487}
-  gm: {fileID: 1821593756}
 --- !u!114 &1972665693
 MonoBehaviour:
   m_ObjectHideFlags: 0

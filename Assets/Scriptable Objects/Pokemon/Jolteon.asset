@@ -22,4 +22,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c6a79f1e09b797a4b962b19b5a571aa5, type: 2}
   - {fileID: 11400000, guid: b845bb453c0fbd54f90ad9a3d33b4f70, type: 2}
   maxHP: 100
-  curHP: 40
+  curHP: 100
