@@ -1,9 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Systems\Utils\ScriptableToInstance.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Systems\Combat\CombatMaster.cs">
     <Files>
-      <File FileName="Assets\Script\Systems\Dialogue\DialogueMaster.cs" Line="30" Column="3" />
-      <File FileName="Assets\Script\Systems\Utils\ScriptableToInstance.cs" Line="8" Column="29" />
+      <File FileName="Assets\Script\Systems\Dialogue\DialogueMaster.cs" Line="41" Column="1" />
+      <File FileName="Assets\Script\Systems\Utils\ScriptableToInstance.cs" Line="11" Column="62" />
+      <File FileName="Assets\Script\Systems\Character Creation\CharacterCreator.cs" Line="29" Column="54" />
+      <File FileName="Assets\Script\Systems\Combat\CombatMaster.cs" Line="113" Column="35" />
+      <File FileName="Assets\Script\Systems\Utils\FaintAnimation.cs" Line="26" Column="76" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
