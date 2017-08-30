@@ -29,7 +29,7 @@ public class DialogueMaster : MonoBehaviour {
 	}
 
 	void Update() {
-		 
+
 	}
 
 	public void Init() {
@@ -38,14 +38,20 @@ public class DialogueMaster : MonoBehaviour {
 	}
 
 	public void NextDialogueStep(int idx) {
+		DialogueStep temp = currentStep;
 		currentStep = currentStep.connectedSteps [idx];
 		ClearPrevious ();
 		if (currentStep as CombatStep != null) {
-			PokemonInstance pInstance = scriptableToInstance.GetInstanceOfScriptableObject ((bc as Trainer).pokemon [0]);
-			CombatMaster.instance.Init (Player.instance.pokemon, pInstance);
-			CombatUI.instance.Show ();
+			if (Player.instance.pokemon.curHP > 0) {
+				PokemonInstance pInstance = scriptableToInstance.GetInstanceOfScriptableObject ((bc as Trainer).pokemon [0]);
+				CombatMaster.instance.Init (Player.instance.pokemon, pInstance);
+				CombatUI.instance.Show ();
+			} else {
+				temp.dialogueText = "Your Pokémon has fainted. You can't do battle!";
+				currentStep = temp;
+			}
 		} 
-			
+
 		SetupDetails ();
 
 		if (currentStep.connectedSteps.Count <= 0) {

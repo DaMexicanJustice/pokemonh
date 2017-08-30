@@ -24,7 +24,13 @@ public class CombatMaster : MonoBehaviour
 	public Transform movesParent;
 	public Button moveBtnPrefab;
 
-	public bool isPlayersTurn = true;
+	private bool isInteractable;
+	public float exitCombatDelay;
+	private float playKOAnimationDelay;
+	public float healthUpdateDelay;
+	[Range(0, 0.02f)]
+	public float textSpeed;
+	private int textIndex = 0;
 
 	void Awake()
 	{
@@ -34,6 +40,7 @@ public class CombatMaster : MonoBehaviour
 			instance = this;
 		}
 		Debug.Log ("CombatMaster: " + instance);
+
 	}
 
 	void Update ()
@@ -42,15 +49,12 @@ public class CombatMaster : MonoBehaviour
 		playerHPText.text = "HP: " + playerHealthSlider.value + " / 100";
 	}
 
-	public void UpdateCombatText (PokemonInstance p, Move m)
+	public void UpdateCombatText (PokemonInstance pokemon, Move move, string effective)
 	{
-		if (p.IsStrongAgainst (m)) {
-			combatText.text = p.name + " uses " + m.name + "!\n " + m.name + " is not very effectice and deals " + m.damage / 2 + " damage";
-		} else if (p.IsWeakAgainst (m)) {
-			combatText.text = p.name + " uses " + m.name + "!\n " + m.name + " is super effective and deals " + m.damage * 2 + " damage"; 
-		} else {
-			combatText.text = p.name + " uses " + m.name + "!\n " + m.name + " deals " + m.damage + " damage"; 
-		}
+		combatText.text = "";
+		string toPrint = pokemon.name + " uses " + move.name + ". " + effective;
+		textIndex = 0;
+		StartCoroutine (TypeText(toPrint, textSpeed));
 	}
 
 	public void Init (PokemonInstance player, PokemonInstance enemy)
@@ -87,52 +91,60 @@ public class CombatMaster : MonoBehaviour
 			Button btn = Instantiate (moveBtnPrefab, movesParent);
 			btn.GetComponentInChildren<Text> ().text = move.name + "\n (" + move.type + ")";
 			btn.GetComponent<Button> ().onClick.AddListener (delegate {
-				Attack (move, ePokemon);
+				PlayerTurn (move);
 			});
 		}
 	}
 
-	public void Attack (Move move, PokemonInstance p)
+	public void PlayerTurn (Move move)
 	{
-		UpdateCombatText (pPokemon, move);
-		p.TakeDamage (move);
-		StartCoroutine (DecreaseSlider (enemyHealthSlider, p));
-		if (!p.IsKO ()) {
-			isPlayersTurn = !isPlayersTurn;
+		ePokemon.TakeDamage (move);
+		UpdateCombatText(pPokemon, move, GetEffectivenessOfMove(move, ePokemon));
+		playKOAnimationDelay = enemyHealthSlider.value * healthUpdateDelay + 1f;
+		StartCoroutine(DecreaseSlider(enemyHealthSlider, ePokemon));
+		if (!ePokemon.IsKO ()) {
 			AllowInput ();
 			Invoke ("EnemyTurn", 2f);
-		} 
-	}
-		
-	public void EnemyTurn() {
-		Move move = ePokemon.UseRandomMove ();
-		UpdateCombatText (ePokemon, move);
-		pPokemon.TakeDamage (move);
-		StartCoroutine (DecreaseSlider (playerHealthSlider, pPokemon));
-		if (!pPokemon.IsKO ()) {
-			isPlayersTurn = !isPlayersTurn;
-			AllowInput ();
-		} 
+		} else {
+			StartCoroutine(PlayKOAnimation(ePokemon, playKOAnimationDelay));
+			StartCoroutine(ExitCombat(true, exitCombatDelay));
+		}
 	}
 
-	public void PlayKOAnimation (PokemonInstance p, bool isPlayer=false)
-	{
-		Invoke ("ExitCombat", 3f);
+	public void EnemyTurn() {
+		Move move = ePokemon.UseRandomMove ();
+		pPokemon.TakeDamage (move);
+		UpdateCombatText(ePokemon, move, GetEffectivenessOfMove(move, pPokemon));
+		playKOAnimationDelay = playerHealthSlider.value * healthUpdateDelay + 1f;
+		StartCoroutine (DecreaseSlider (playerHealthSlider, pPokemon));
+		if (!pPokemon.IsKO ()) {
+			AllowInput ();
+		} else {
+			StartCoroutine(PlayKOAnimation(pPokemon, playKOAnimationDelay));
+			StartCoroutine(ExitCombat(false, exitCombatDelay));
+		}
+	}
+
+	IEnumerator PlayKOAnimation (PokemonInstance p, float playDelay) {
+		yield return new WaitForSeconds(playDelay);
 		combatText.text = p.name + " has been defeated!";
-		if (!isPlayer) {
+
+		if (p == ePokemon) {
 			enemyPokemonImage.gameObject.AddComponent<FaintAnimation> ();
 		} else {
 			playerPokemonImage.gameObject.AddComponent<FaintAnimation> ();
 		}
+
 	}
 
-	private void ExitCombat ()
+	IEnumerator ExitCombat (bool playerWon, float delayTime)
 	{
-		foreach(Transform t in movesParent.transform) {
+		yield return new WaitForSeconds(delayTime + playKOAnimationDelay);
+		foreach (Transform t in movesParent.transform) {
 			Destroy (t.gameObject);
 		}
 		CombatUI.instance.Hide ();
-		if (isPlayersTurn) {
+		if (playerWon) {
 			DialogueMaster.instance.NextDialogueStep (1);
 			enemyPokemonImage.gameObject.GetComponent<FaintAnimation> ().Expire ();
 		} else {
@@ -142,37 +154,44 @@ public class CombatMaster : MonoBehaviour
 	}
 
 	private void AllowInput() {
-		if (!isPlayersTurn) {
-			Button[] btns = GetComponentsInChildren<Button> ();
-			foreach (Button btn in btns) {
-				btn.interactable = false;
-			}
-		} else {
-			Button[] btns = GetComponentsInChildren<Button> ();
-			foreach (Button btn in btns) {
-				btn.interactable = true;
-			}
+		Button[] btns = GetComponentsInChildren<Button> ();
+		foreach (Button btn in btns) {
+			btn.interactable = isInteractable;
 		}
+		isInteractable = !isInteractable;
 	}
 
 	IEnumerator DecreaseSlider(Slider slider, PokemonInstance pokemon)
 	{
-		float timeSlice = (slider.value / 100);
+		float timeSlice = (slider.maxValue / 100);
 		while (true) {
-			Debug.Log (pokemon.curHP);
 			slider.value -= timeSlice;
-			if ( (ePokemon.curHP <= 0 || pPokemon.curHP <= 0) && slider.value <= 0) {
-				if (isPlayersTurn) {
-					PlayKOAnimation (pokemon);
-				} else {
-					PlayKOAnimation (pokemon, true);
-				}
-			}
-
 			if (slider.value <= pokemon.curHP) {
 				break;
 			}
-			yield return new WaitForSeconds(0.02f);
+			yield return new WaitForSeconds(healthUpdateDelay);
+		}
+	}
+
+	private string GetEffectivenessOfMove(Move move, PokemonInstance defender) {
+		if (defender.IsStrongAgainst(move))
+		{
+			return "It's not very effective";
+		}
+		else if (defender.IsWeakAgainst(move))
+		{
+			return "It's super effective";
+		}
+		else {
+			return "";
+		}
+	}
+
+	IEnumerator TypeText(string toWrite, float textSpeed) {
+		while (textIndex < toWrite.Length) {
+			combatText.text += toWrite [textIndex];
+			textIndex++;
+			yield return new WaitForSeconds (textSpeed);
 		}
 	}
 
