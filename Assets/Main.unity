@@ -1475,7 +1475,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: GEISER TOWN
+  m_Text: GEYSER TOWN
 --- !u!222 &219649842
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2641,7 +2641,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SAPPHIRE TOWN
+  m_Text: 'CLOVER TOWN
+
+'
 --- !u!222 &504800291
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3872,7 +3874,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: METRO TOWN
+  m_Text: METRO CITY
 --- !u!222 &831331681
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5795,6 +5797,46 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1219974057}
+--- !u!1 &1246970841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1246970843}
+  - component: {fileID: 1246970842}
+  m_Layer: 0
+  m_Name: Tester
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1246970842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1246970841}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 477e5eac0f1d6c547a1d2ea294dff4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1246970843
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1246970841}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1252976220
 GameObject:
   m_ObjectHideFlags: 0
@@ -6733,7 +6775,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610e5721857de4a4ba5291186e9f0924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bc: {fileID: 0}
   currentStep: {fileID: 0}
   btnPrefab: {fileID: 1986525897553372, guid: 2f976d62326ae904193e115dbed02574, type: 2}
   btnsParent: {fileID: 2044787138}
@@ -7457,12 +7498,12 @@ MonoBehaviour:
   combatText: {fileID: 1618156375}
   enemyPokemonImage: {fileID: 327037020}
   playerPokemonImage: {fileID: 2054659224}
-  ePokemon: {fileID: 0}
-  pPokemon: {fileID: 0}
   movesParent: {fileID: 1727201636}
   moveBtnPrefab: {fileID: 114013032231073458, guid: 2f976d62326ae904193e115dbed02574,
     type: 2}
-  isPlayersTurn: 1
+  exitCombatDelay: 3
+  healthUpdateDelay: 0.04
+  textSpeed: 0.02
 --- !u!114 &1662252833
 MonoBehaviour:
   m_ObjectHideFlags: 0

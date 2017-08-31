@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [System.Serializable, CreateAssetMenu(fileName="New Pokémon", menuName = "Pokemon_H/Pokemon/Pokemon", order=0)]
 public class Pokemon : ScriptableObject {
 
-	public string name;
+	public string pokemonName;
 	public enum Gender {
 		MALE, FEMALE
 	}

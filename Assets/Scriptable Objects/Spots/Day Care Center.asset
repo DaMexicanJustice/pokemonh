@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33afb60e2c598144b4ea8c3971159c9, type: 3}
   m_Name: Day Care Center
   m_EditorClassIdentifier: 
-  name: Day Care Center
+  spotName: Day Care Center
   description: Descr...
   background: {fileID: 21300000, guid: accab601ce7021d4880c8cd9615e098e, type: 3}
   characters:
-  - {fileID: 11400000, guid: 40e61564c81708742b4fba80f3291a79, type: 2}
+  - {fileID: 0}

@@ -9,17 +9,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8aa820fb273cc047aead255bef6abc0, type: 3}
-  m_Name: Jolteon
+  m_Name: Vaporeon
   m_EditorClassIdentifier: 
-  name: Jolteon
-  gender: 0
-  sprite: {fileID: 21300000, guid: 42d8282edc2168b4d90bd6fd909448b2, type: 3}
-  controller: {fileID: 9100000, guid: 5abf345900d03b446a50c0bef719b30c, type: 2}
-  type: 3
+  pokemonName: Vaporeon
+  gender: 1
+  sprite: {fileID: 21300000, guid: 09c95d6f14ff088468a00a4b7202d96f, type: 3}
+  controller: {fileID: 9100000, guid: 0c06e935e6e12124a8a5526af8ee9c27, type: 2}
+  type: 2
   moves:
   - {fileID: 11400000, guid: 893c7cd687ccb1f4a960904d158b9dfe, type: 2}
-  - {fileID: 11400000, guid: ccdae6fcff1dc7845ab613021d0b55f6, type: 2}
-  - {fileID: 11400000, guid: c6a79f1e09b797a4b962b19b5a571aa5, type: 2}
-  - {fileID: 11400000, guid: b845bb453c0fbd54f90ad9a3d33b4f70, type: 2}
+  - {fileID: 11400000, guid: 9d35795c3281170438c899619a84d34a, type: 2}
+  - {fileID: 11400000, guid: c00bed99c26079c4da58d9e431e3c0b7, type: 2}
+  - {fileID: 11400000, guid: 1ea7ec215767f614ea9bbe7f93861cdc, type: 2}
   maxHP: 100
   curHP: 100

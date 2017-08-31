@@ -76,7 +76,7 @@ public class CharacterCreator : MonoBehaviour {
 			CharacterCreationUI.instance.Hide ();
 			OverworldUI.instance.Show ();
 			Player player = GameObject.FindGameObjectWithTag ("Player").AddComponent<Player> ();
-			player.name = pName.text;
+			player.playerName = pName.text;
 			player.age = pAge.text;
 			player.gender = pGender.text;
 			int idx = starterIdx.selection;

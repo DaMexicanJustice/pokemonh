@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
 			Player player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
 			playerDetails.SetActive (isOn);
 			Text name = Instantiate (textPrefab, playerDetails.transform);
-			name.text = "Name: " + player.name;
+			name.text = "Name: " + player.playerName;
 			Text age = Instantiate (textPrefab, playerDetails.transform);
 			age.text = "Age: " + player.age;
 			Text gender = Instantiate (textPrefab, playerDetails.transform);
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void SetStarter(Player player) {
-		switch (player.pokemon.name) {
+		switch (player.pokemon.pokemonName) {
 		case "Flareon":
 			Instantiate (flareon, playerDetails.transform);
 			break;

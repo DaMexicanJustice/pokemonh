@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33afb60e2c598144b4ea8c3971159c9, type: 3}
   m_Name: Rock Gym
   m_EditorClassIdentifier: 
-  name: Rock Gym
+  spotName: Rock Gym
   description: Descr...
   background: {fileID: 21300000, guid: 99ae03d5a9bf70b44b836cc995434711, type: 3}
   characters:

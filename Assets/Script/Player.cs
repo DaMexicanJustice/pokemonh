@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
 	public static Player instance;
 
 	public PokemonInstance pokemon;
-	public string name;
+	public string playerName;
 	public string age;
 	public string gender;
 

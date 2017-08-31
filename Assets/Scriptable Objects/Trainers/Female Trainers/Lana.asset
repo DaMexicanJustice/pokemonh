@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e9c6d0fbc348a49b5490b46d277c0d, type: 3}
   m_Name: Lana
   m_EditorClassIdentifier: 
-  name: Lana
+  characterName: Lana
   age: 11
   gender: 1
-  ds: {fileID: 11400000, guid: d7bf049f8ba11094c9ee2c47e50b2a7b, type: 2}
+  startNode: {fileID: 0}
   pokemon: []
   personality: 0
+  hasBeenDisgraced: 0

@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33afb60e2c598144b4ea8c3971159c9, type: 3}
   m_Name: Bazaar
   m_EditorClassIdentifier: 
-  name: Bazaar
+  spotName: Bazaar
   description: Descr...
   background: {fileID: 21300000, guid: 9902774ab2027ec43825377ec821ee7c, type: 3}
   characters:
-  - {fileID: 11400000, guid: 40e61564c81708742b4fba80f3291a79, type: 2}
+  - {fileID: 0}

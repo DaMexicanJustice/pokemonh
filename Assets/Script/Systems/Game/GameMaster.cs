@@ -49,15 +49,13 @@ public class GameMaster : MonoBehaviour {
 	}
 
 	public void SetInteractingWithCharacter(BaseCharacter bc) {
-		DialogueMaster.instance.bc = bc;
-		DialogueMaster.instance.currentStep = bc.ds;
-		DialogueMaster.instance.Init ();
+		DialogueMaster.instance.Init (bc);
+		DialogueMaster.instance.currentStep = bc.startNode;
 		HideUI ();
 		ConversationUI.instance.Show ();
 	}
 
 	public void DoneInteractingWithCharacter() {
-		DialogueMaster.instance.bc = null;
 		HideUI ();
 	}
 
@@ -121,11 +119,10 @@ public class GameMaster : MonoBehaviour {
 		Player player = Player.instance;
 		int idx = player.bCollection.FindBadgeIndexByBadgeType (badge);
 		player.bCollection.badges [idx] = true;
-		Debug.Log (player.bCollection.badges [idx]);
-		CheckBadges (player.bCollection.badges);
+		UnlockBadgesInUI (player.bCollection.badges);
 	}
 
-	public void CheckBadges(List<bool> badges) {
+	public void UnlockBadgesInUI(List<bool> badges) {
 		foreach (bool b in badges) {
 			if (b) {
 				bHandler.EnableBadge ( badges.IndexOf(b) + 1 );

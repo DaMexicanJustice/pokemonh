@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e9c6d0fbc348a49b5490b46d277c0d, type: 3}
   m_Name: Clair
   m_EditorClassIdentifier: 
-  name: Clair
+  characterName: Clair
   age: 19
   gender: 1
-  ds: {fileID: 11400000, guid: 2dcf97dd18257634dbc7758c6fc3c9cd, type: 2}
+  startNode: {fileID: 0}
   pokemon: []
   personality: 2
+  hasBeenDisgraced: 0

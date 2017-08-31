@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e9c6d0fbc348a49b5490b46d277c0d, type: 3}
   m_Name: Roxanne
   m_EditorClassIdentifier: 
-  name: Roxanne
+  characterName: Roxanne
   age: 15
   gender: 1
-  ds: {fileID: 11400000, guid: 84d59fadcb43ac344a5df248e4e7a1aa, type: 2}
+  startNode: {fileID: 0}
   pokemon: []
   personality: 1
+  hasBeenDisgraced: 0

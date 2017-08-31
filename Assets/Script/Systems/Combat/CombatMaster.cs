@@ -18,8 +18,8 @@ public class CombatMaster : MonoBehaviour
 	public Image enemyPokemonImage;
 	public Image playerPokemonImage;
 
-	public PokemonInstance ePokemon;
-	public PokemonInstance pPokemon;
+	private PokemonInstance ePokemon;
+	private PokemonInstance pPokemon;
 
 	public Transform movesParent;
 	public Button moveBtnPrefab;
@@ -52,7 +52,7 @@ public class CombatMaster : MonoBehaviour
 	public void UpdateCombatText (PokemonInstance pokemon, Move move, string effective)
 	{
 		combatText.text = "";
-		string toPrint = pokemon.name + " uses " + move.name + ". " + effective;
+		string toPrint = pokemon.pokemonName + " uses " + move.moveName + ". " + effective;
 		textIndex = 0;
 		StartCoroutine (TypeText(toPrint, textSpeed));
 	}
@@ -63,8 +63,8 @@ public class CombatMaster : MonoBehaviour
 		pPokemon = player;
 		// ---------------------------------------------------------------------------------------- //
 		enemyPokemonImage.sprite = ePokemon.sprite;
-		enemyPokemonNameText.text = ePokemon.name + " " + GetGenderSymbol (ePokemon);
-		playerPokemonNameText.text = pPokemon.name + " " + GetGenderSymbol (pPokemon);
+		enemyPokemonNameText.text = ePokemon.pokemonName + " " + GetGenderSymbol (ePokemon);
+		playerPokemonNameText.text = pPokemon.pokemonName + " " + GetGenderSymbol (pPokemon);
 
 		playerPokemonImage.GetComponent<Animator> ().runtimeAnimatorController = pPokemon.controller;
 
@@ -89,7 +89,7 @@ public class CombatMaster : MonoBehaviour
 		List<Move> moves = p.moves;
 		foreach (Move move in moves) {
 			Button btn = Instantiate (moveBtnPrefab, movesParent);
-			btn.GetComponentInChildren<Text> ().text = move.name + "\n (" + move.type + ")";
+			btn.GetComponentInChildren<Text> ().text = move.moveName + "\n (" + move.type + ")";
 			btn.GetComponent<Button> ().onClick.AddListener (delegate {
 				PlayerTurn (move);
 			});
@@ -127,7 +127,7 @@ public class CombatMaster : MonoBehaviour
 
 	IEnumerator PlayKOAnimation (PokemonInstance p, float playDelay) {
 		yield return new WaitForSeconds(playDelay);
-		combatText.text = p.name + " has been defeated!";
+		combatText.text = p.pokemonName + " has been defeated!";
 
 		if (p == ePokemon) {
 			enemyPokemonImage.gameObject.AddComponent<FaintAnimation> ();

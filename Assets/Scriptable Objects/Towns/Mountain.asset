@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a08859956768f1a49885358f85cf6cbc, type: 3}
   m_Name: Mountain
   m_EditorClassIdentifier: 
-  name: Mt. Andesite
+  townName: Mt. Andesite
   description: Descr...
   background: {fileID: 21300000, guid: ba8aae87c2c4d50428c4310c3a7ea09d, type: 3}
   spots:

@@ -26,44 +26,40 @@ public class TownMaster : MonoBehaviour {
 
 	public void SetupSpots() {
 		ClearPrevious ();
-		int idx = 0;
 		List<Spot> spots = town.spots;
 		foreach (Spot spot in spots) {
 			GameObject btn = Instantiate (btnPrefab, btnsParent);
-			btn.GetComponentInChildren<Text> ().text = spot.name;
+			btn.GetComponentInChildren<Text> ().text = spot.spotName;
 			btn.GetComponent<Button>().onClick.AddListener(delegate{GoToSpot(spot);});
 		}
 
 	}
 
 	private void SetupCharacters(Spot spot) {
-		int idx = 0;
 		List<BaseCharacter> characters = spot.characters;
 		foreach (BaseCharacter bs in characters) {
 			GameObject btn = Instantiate (btnPrefab, btnsParent);
-			btn.GetComponentInChildren<Text> ().text = "Talk  to  " + bs.name;
-			if (bs.ds.connectedSteps.Count > 0) {
+			btn.GetComponentInChildren<Text> ().text = "Talk  to  " + bs.characterName;
+			if (bs.startNode.connectedSteps.Count > 0) {
 				btn.GetComponent<Button> ().onClick.AddListener (delegate {
 					TalkToCharacter (bs);
 				});
 			} else {
-				description.text = bs.name +  " Not yet implemented!";
+				description.text = bs.characterName +  " Not yet implemented!";
 			}
-			idx++;
-
 		}
 	}
 
 	public void Init() {
 		background.sprite = town.background;
-		place.text = town.name;
+		place.text = town.townName;
 		description.text = town.description;
 		SetupSpots ();
 	}
 
 	public void InitSpot() {
 		background.sprite = spot.background;
-		place.text = spot.name;
+		place.text = spot.spotName;
 		description.text = spot.description;
 		SetupCharacters (spot);
 	}

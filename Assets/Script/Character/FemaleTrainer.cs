@@ -9,5 +9,5 @@ public class FemaleTrainer : Trainer {
 		INNOCENT, NAUGHTY, NOBULLSHIT, TIMID
 	}
 	public Personality personality;
-
+	public bool hasBeenDisgraced;
 }

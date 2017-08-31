@@ -52,8 +52,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\BadgeCollection.cs" />
+     <Compile Include="Assets\Script\Berry\Berry.cs" />
+     <Compile Include="Assets\Script\Berry\BerryCompatibility.cs" />
      <Compile Include="Assets\Script\Character\BaseCharacter.cs" />
      <Compile Include="Assets\Script\Character\FemaleTrainer.cs" />
+     <Compile Include="Assets\Script\Character\SexPokemon.cs" />
      <Compile Include="Assets\Script\Character\Trainer.cs" />
      <Compile Include="Assets\Script\Player.cs" />
      <Compile Include="Assets\Script\Pokemon\Move.cs" />
@@ -76,6 +79,7 @@
      <Compile Include="Assets\Script\Systems\UI\OverworldUI.cs" />
      <Compile Include="Assets\Script\Systems\UI\TownUI.cs" />
      <Compile Include="Assets\Script\Systems\Utils\BattleTest.cs" />
+     <Compile Include="Assets\Script\Systems\Utils\ConditionChecker.cs" />
      <Compile Include="Assets\Script\Systems\Utils\FaintAnimation.cs" />
      <Compile Include="Assets\Script\Systems\Utils\FontAdjuster.cs" />
      <Compile Include="Assets\Script\Systems\Utils\IconCameraFacer.cs" />

@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e9c6d0fbc348a49b5490b46d277c0d, type: 3}
   m_Name: Flannery
   m_EditorClassIdentifier: 
-  name: Flannery
+  characterName: Flannery
   age: 17
   gender: 1
-  ds: {fileID: 11400000, guid: fc63f3c6e6ff36547a24255ceb8c1072, type: 2}
+  startNode: {fileID: 0}
   pokemon: []
   personality: 1
+  hasBeenDisgraced: 0

@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e9c6d0fbc348a49b5490b46d277c0d, type: 3}
   m_Name: Iris
   m_EditorClassIdentifier: 
-  name: Iris
+  characterName: Iris
   age: 10
   gender: 1
-  ds: {fileID: 11400000, guid: 6a56c1d690de174438f938b48a2c7389, type: 2}
+  startNode: {fileID: 0}
   pokemon: []
   personality: 0
+  hasBeenDisgraced: 0

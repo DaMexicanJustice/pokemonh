@@ -8,7 +8,7 @@ public class DialogueMaster : MonoBehaviour {
 	public static DialogueMaster instance;
 	private ScriptableToInstance scriptableToInstance;
 
-	public BaseCharacter bc;
+	private BaseCharacter bc;
 	public DialogueStep currentStep;
 	public GameObject btnPrefab;
 	public Transform btnsParent;
@@ -32,12 +32,15 @@ public class DialogueMaster : MonoBehaviour {
 
 	}
 
-	public void Init() {
+	public void Init(BaseCharacter bc) {
+		this.bc = bc;
+		currentStep = bc.startNode;
 		SetupPaths ();
 		SetupDetails ();
 	}
 
 	public void NextDialogueStep(int idx) {
+		// In case something goes wrong, we can revert to this previous step (i.e failed check)
 		DialogueStep temp = currentStep;
 		currentStep = currentStep.connectedSteps [idx];
 		ClearPrevious ();
@@ -66,7 +69,7 @@ public class DialogueMaster : MonoBehaviour {
 	public void SetupDetails() {
 		background.sprite = currentStep.background;
 		character.sprite = currentStep.character;
-		characterName.text = bc.name;
+		characterName.text = bc.characterName;
 		characterDialogue.text = currentStep.dialogueText;
 	}
 

@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33afb60e2c598144b4ea8c3971159c9, type: 3}
   m_Name: Route 14
   m_EditorClassIdentifier: 
-  name: Route 14
+  spotName: Route 14
   description: Descr...
   background: {fileID: 21300000, guid: 249b813de058e5a49bb403b0d3dfb833, type: 3}
   characters:

@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e9c6d0fbc348a49b5490b46d277c0d, type: 3}
   m_Name: Mallow
   m_EditorClassIdentifier: 
-  name: Mallow
+  characterName: Mallow
   age: 16
   gender: 1
-  ds: {fileID: 11400000, guid: c10eb3233f1ee5e46af01d2e1acec5da, type: 2}
+  startNode: {fileID: 0}
   pokemon: []
   personality: 1
+  hasBeenDisgraced: 0

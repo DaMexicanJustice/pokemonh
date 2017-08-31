@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PokemonInstance {
 
-	public string name;
+	public string pokemonName;
 	public enum Gender {
 		MALE, FEMALE
 	}
@@ -27,7 +27,7 @@ public class PokemonInstance {
 	public int curHP;
 
 	public PokemonInstance(Pokemon pokemon) {
-		name = pokemon.name;
+		pokemonName = pokemon.pokemonName;
 		gender = (Gender) pokemon.gender;
 		sprite = pokemon.sprite;
 		controller = pokemon.controller;

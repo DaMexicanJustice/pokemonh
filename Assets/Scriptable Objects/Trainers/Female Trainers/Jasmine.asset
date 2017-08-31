@@ -11,10 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e9c6d0fbc348a49b5490b46d277c0d, type: 3}
   m_Name: Jasmine
   m_EditorClassIdentifier: 
-  name: Jasmine
+  characterName: Jasmine
   age: 15
   gender: 1
-  ds: {fileID: 11400000, guid: c6db0deed704d0f4b855c6117ac79b1d, type: 2}
+  startNode: {fileID: 11400000, guid: c6db0deed704d0f4b855c6117ac79b1d, type: 2}
   pokemon:
   - {fileID: 11400000, guid: 4e4d1f754521632459fe884b2ca51e31, type: 2}
   personality: 0
+  hasBeenDisgraced: 0

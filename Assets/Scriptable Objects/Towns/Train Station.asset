@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a08859956768f1a49885358f85cf6cbc, type: 3}
   m_Name: Train Station
   m_EditorClassIdentifier: 
-  name: Metro City
+  townName: Metro City
   description: Descr...
   background: {fileID: 21300000, guid: 94d6b38823e3965499c6eac39b46b62f, type: 3}
   spots:

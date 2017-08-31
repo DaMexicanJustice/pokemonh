@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e9c6d0fbc348a49b5490b46d277c0d, type: 3}
   m_Name: Lillie
   m_EditorClassIdentifier: 
-  name: Lillie
+  characterName: Lillie
   age: 14
   gender: 1
-  ds: {fileID: 11400000, guid: 12fe6f45b0af010468860ff3fef8c438, type: 2}
+  startNode: {fileID: 0}
   pokemon: []
   personality: 0
+  hasBeenDisgraced: 0

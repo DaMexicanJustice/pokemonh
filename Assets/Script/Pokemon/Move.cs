@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable, CreateAssetMenu(fileName="New Move", menuName = "Pokemon_H/Pokemon/Move", order=2)]
 public class Move : ScriptableObject {
 
-	public string name;
+	public string moveName;
 	public int damage;
 	public enum Type {
 		NORMAL, FIRE, WATER, ELECTRIC, GRASS, 
