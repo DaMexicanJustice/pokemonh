@@ -24,7 +24,6 @@ public class DialogueMaster : MonoBehaviour {
 		} else {
 			instance = this;
 		}
-		Debug.Log ("DialogueMaster: " + instance);
 		scriptableToInstance = new ScriptableToInstance ();
 	}
 

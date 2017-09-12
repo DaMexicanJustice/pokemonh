@@ -27,7 +27,6 @@ public class GameMaster : MonoBehaviour {
 		} else {
 			instance = this;
 		}
-		Debug.Log ("GameMaster: " + instance);
 	}
 
 	void Start() {

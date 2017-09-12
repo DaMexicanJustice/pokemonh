@@ -19,7 +19,7 @@ MonoBehaviour:
   moves:
   - {fileID: 11400000, guid: 893c7cd687ccb1f4a960904d158b9dfe, type: 2}
   - {fileID: 11400000, guid: 2da2ff369740c8549923ccdfb78a77e4, type: 2}
-  - {fileID: 11400000, guid: a13ba9f303609324cbaa4eebec777282, type: 2}
   - {fileID: 11400000, guid: b845bb453c0fbd54f90ad9a3d33b4f70, type: 2}
+  - {fileID: 11400000, guid: a13ba9f303609324cbaa4eebec777282, type: 2}
   maxHP: 100
   curHP: 100

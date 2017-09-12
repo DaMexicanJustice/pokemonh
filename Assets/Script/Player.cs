@@ -10,6 +10,10 @@ public class Player : MonoBehaviour {
 	public string playerName;
 	public string age;
 	public string gender;
+	private Pokemon p;
+	public Inventory inventory = new Inventory ();
+	public List<TM> tms = new List<TM>();
+	public bool doRun = false;
 
 	public BadgeCollection bCollection = new BadgeCollection();
 
@@ -19,6 +23,17 @@ public class Player : MonoBehaviour {
 		} else {
 			instance = this;
 		}
+	}
+
+	void Update() {
+		if (doRun) {
+			DoStuff ();
+			doRun = false;
+		}
+	}
+
+	public void DoStuff() {
+		inventory.tms = tms;
 	}
 
 }

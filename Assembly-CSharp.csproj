@@ -69,7 +69,9 @@
      <Compile Include="Assets\Script\Systems\Dialogue\DialogueMaster.cs" />
      <Compile Include="Assets\Script\Systems\Dialogue\DialogueStep.cs" />
      <Compile Include="Assets\Script\Systems\Game\GameMaster.cs" />
+     <Compile Include="Assets\Script\Systems\Inventory\Inventory.cs" />
      <Compile Include="Assets\Script\Systems\Overworld\OverworldMaster.cs" />
+     <Compile Include="Assets\Script\Systems\TM\TM.cs" />
      <Compile Include="Assets\Script\Systems\Types\PokemonTypeMaster.cs" />
      <Compile Include="Assets\Script\Systems\UI\BadgeHandler.cs" />
      <Compile Include="Assets\Script\Systems\UI\BaseUI.cs" />

@@ -21,7 +21,6 @@ public class TownMaster : MonoBehaviour {
 		} else {
 			instance = this;
 		}
-		Debug.Log ("TownMaster: " + instance);
 	}
 
 	public void SetupSpots() {

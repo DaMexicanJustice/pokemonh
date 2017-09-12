@@ -39,7 +39,6 @@ public class CombatMaster : MonoBehaviour
 		} else {
 			instance = this;
 		}
-		Debug.Log ("CombatMaster: " + instance);
 
 	}
 
