@@ -11,12 +11,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc29bf59f5a6a54ea1a9c4b6173f4f2, type: 3}
   m_Name: Refuse
   m_EditorClassIdentifier: 
+  person: {fileID: 0}
   connectedSteps:
   - {fileID: 11400000, guid: 873b415161e720d4e8ca2d25b644ef71, type: 2}
   contextTag: Asked for sex
   leftBranchTag: Nevermind
   middleBranchTag: 
   rightBranchTag: 
-  dialogueText: What..?
+  dialogueText:
+  - 
   background: {fileID: 0}
   character: {fileID: 0}
+  criteria: {fileID: 0}

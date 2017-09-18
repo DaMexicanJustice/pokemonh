@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Berry {
+[System.Serializable, CreateAssetMenu(fileName="New Berry", menuName = "Pokemon_H/Inventory/Berry", order=1)]
+public class Berry : ScriptableObject {
 
 	public enum BerryName {
 		SITRUS, PECHA, ORAN, LEPPA, RAWST

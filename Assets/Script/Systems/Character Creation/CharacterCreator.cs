@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterCreator : MonoBehaviour {
+public class CharacterCreator : MonoBehaviour
+{
 
-	public Text blueText; 
+	public Text blueText;
 	public List<string> tutorialText;
 	public Button btn;
 	public Text pName;
 	public Text pAge;
 	public Text pGender;
+	private string starterGender;
+	public Dropdown starterGenderDropdown;
 
 	int idx = 0;
 	int selector = 0;
@@ -24,36 +27,41 @@ public class CharacterCreator : MonoBehaviour {
 	private ScriptableToInstance scriptableToInstance;
 
 	// Use this for initialization
-	void Awake () {
+	void Awake ()
+	{
 		Init ();
 		scriptableToInstance = new ScriptableToInstance ();
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		
 	}
 
-	public void TypeText() {
+	public void TypeText ()
+	{
 		if (idx < tutorialText [selector].Length) {
 			blueText.text += tutorialText [selector] [idx];
 			idx++;
 		} 
 	}
 
-	public void NextText() {
+	public void NextText ()
+	{
 		blueText.text = "";
 		idx = 0;
 		if (selector < tutorialText.Count - 1) {
 			selector++;
 		} else {
 			CancelInvoke ();
-			btn.GetComponentInChildren<Text>().text = "Send";
-			btn.onClick.AddListener ( () =>  Submit() );
+			btn.GetComponentInChildren<Text> ().text = "Send";
+			btn.onClick.AddListener (() => Submit ());
 		}
 	}
 
-	public void Init() {
+	public void Init ()
+	{
 		tutorialText = new List<string> ();
 		tutorialText.Add ("Hello! Sorry to keep you waiting! Welcome to the world of Pokémon!");
 		tutorialText.Add ("My name is DMJ. People call me the Pokémon pimp");
@@ -71,7 +79,8 @@ public class CharacterCreator : MonoBehaviour {
 		InvokeRepeating ("TypeText", 0, textSpeed);
 	}
 
-	public void Submit() {
+	public void Submit ()
+	{
 		if (!fieldsAreEmpty ()) {
 			CharacterCreationUI.instance.Hide ();
 			OverworldUI.instance.Show ();
@@ -95,12 +104,22 @@ public class CharacterCreator : MonoBehaviour {
 				break;
 			}
 
+			switch (starterGenderDropdown.value) {
+			case 0:
+				player.pokemon.gender = PokemonInstance.Gender.MALE;
+				break;
+			case 1:
+				player.pokemon.gender = PokemonInstance.Gender.FEMALE;
+				break;
+			}
+
 		} else {
 			blueText.text = "Thank you! Huh, wait. You seem to have sent me empty data. Please try again ---->";
 		}
 	}
 
-	private bool fieldsAreEmpty() {
+	private bool fieldsAreEmpty ()
+	{
 		return (pName.text == "Name" || pAge.text == "Age" || pGender.text == "Gender");
 	}
 

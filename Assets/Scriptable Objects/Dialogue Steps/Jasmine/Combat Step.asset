@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 125e70e65c117d3439882923f14c2042, type: 3}
   m_Name: Combat Step
   m_EditorClassIdentifier: 
+  person: {fileID: 0}
   connectedSteps:
   - {fileID: 11400000, guid: ecf14ac424794664cb21b162a2ceb251, type: 2}
   - {fileID: 11400000, guid: 4ba1c521fd8c36847b4fd1420e447ab9, type: 2}
@@ -18,8 +19,10 @@ MonoBehaviour:
   leftBranchTag: 
   middleBranchTag: 
   rightBranchTag: 
-  dialogueText: 
+  dialogueText:
+  - 
   background: {fileID: 0}
   character: {fileID: 0}
+  criteria: {fileID: 0}
   playerWonCombat: 0
   ft: {fileID: 11400000, guid: d15cca3fc88123f43979330964305f71, type: 2}

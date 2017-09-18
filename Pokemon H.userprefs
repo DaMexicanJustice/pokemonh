@@ -1,10 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Systems\Controller\PlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Systems\Character Creation\CharacterCreator.cs">
     <Files>
-      <File FileName="Assets\Script\Systems\Controller\PlayerController.cs" Line="70" Column="52" />
-      <File FileName="Assets\Script\Systems\TM\TM.cs" Line="17" Column="37" />
-      <File FileName="Assets\Script\Player.cs" Line="14" Column="1" />
+      <File FileName="Assets\Script\Systems\Character Creation\CharacterCreator.cs" Line="15" Column="1" />
+      <File FileName="Assets\Script\Systems\Dialogue\DialogueMaster.cs" Line="226" Column="33" />
+      <File FileName="Assets\Script\Systems\Controller\PlayerController.cs" Line="52" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

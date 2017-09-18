@@ -20,6 +20,8 @@ public class GameMaster : MonoBehaviour {
 	public GameState state;
 	public BadgeHandler bHandler;
 
+	public GameObject spinner;
+
 	void Awake() {
 
 		if (instance) {

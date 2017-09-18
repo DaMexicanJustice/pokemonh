@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc29bf59f5a6a54ea1a9c4b6173f4f2, type: 3}
   m_Name: Greetings
   m_EditorClassIdentifier: 
+  person: {fileID: 11400000, guid: d15cca3fc88123f43979330964305f71, type: 2}
   connectedSteps:
   - {fileID: 11400000, guid: 1357f691efc3788478ac4a6c7065d14e, type: 2}
   - {fileID: 11400000, guid: c42027cf16513dd4d9c8eafe14b43f07, type: 2}
@@ -18,6 +19,12 @@ MonoBehaviour:
   leftBranchTag: Say Hello
   middleBranchTag: Say Goodbye
   rightBranchTag: 
-  dialogueText: Hey! Don't you just love the sun today?
+  dialogueText:
+  - This is a test conversation.. No buttons
+  - More text here..
+  - Lorem ipsum..
+  - Pokemon heartgold/soulsilver
+  - And conversation is donedy. Buttons?
   background: {fileID: 21300000, guid: 5cf5c92e43c2868439b2d586878b000e, type: 3}
   character: {fileID: 21300000, guid: 82263c54c53c0c941a49025512b4af3b, type: 3}
+  criteria: {fileID: 0}

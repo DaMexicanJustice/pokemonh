@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc29bf59f5a6a54ea1a9c4b6173f4f2, type: 3}
   m_Name: Question
   m_EditorClassIdentifier: 
+  person: {fileID: 0}
   connectedSteps:
   - {fileID: 11400000, guid: b5ce9158ee1ce9c45a5442eef807f486, type: 2}
   - {fileID: 11400000, guid: 090acfb7d10056a40a531b768a12a97c, type: 2}
@@ -19,6 +20,8 @@ MonoBehaviour:
   leftBranchTag: About Her
   middleBranchTag: Try For Sex
   rightBranchTag: Her Age
-  dialogueText: Sure, I guess, what do you want to know?
+  dialogueText:
+  - 
   background: {fileID: 21300000, guid: 5cf5c92e43c2868439b2d586878b000e, type: 3}
   character: {fileID: 21300000, guid: 82263c54c53c0c941a49025512b4af3b, type: 3}
+  criteria: {fileID: 0}

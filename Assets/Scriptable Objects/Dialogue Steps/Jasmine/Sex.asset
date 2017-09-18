@@ -11,17 +11,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc29bf59f5a6a54ea1a9c4b6173f4f2, type: 3}
   m_Name: Sex
   m_EditorClassIdentifier: 
+  person: {fileID: 0}
   connectedSteps:
   - {fileID: 11400000, guid: c42027cf16513dd4d9c8eafe14b43f07, type: 2}
   contextTag: Asked for sex
-  leftBranchTag: Nevermind
+  leftBranchTag: End
   middleBranchTag: 
   rightBranchTag: 
-  dialogueText: '(After spending a couple of minutes on convincing Jasmine, you manage
-    to persuade her into performing oral sex on you. After all, she claims to like
-    helping people out and what better way to help a guy, than to assist him in relieving
-    a little stress? She is an amateur with a capital A at handling your cock. The
-    results of her best effort are loud, slurping noises, her lips smacking with the
-    occasional gag) '
+  dialogueText:
+  - 
   background: {fileID: 21300000, guid: 7bbe823f1b78ada47ad5d1e00e445747, type: 3}
   character: {fileID: 21300000, guid: ec8145f738f332f43ac211d006d8f1da, type: 3}
+  criteria: {fileID: 0}

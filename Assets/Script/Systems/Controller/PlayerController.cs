@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
 		gender.text = AutoSpace("Gender:") + Player.instance.gender;
 		Text starter = Instantiate (textPrefab, playerDetails.transform);
 		starter.text = "Starter";
+		Text starterNameGender = Instantiate (textPrefab, playerDetails.transform);
+		starter.text = Player.instance.pokemon.pokemonName + " | " + Player.instance.pokemon.gender.ToString();
 		SetStarter ();
 
 		foreach (TM tm in Player.instance.inventory.tms) {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable, CreateAssetMenu(fileName="New TM", menuName = "Pokemon_H/TM/TM", order=0)]
+[System.Serializable, CreateAssetMenu(fileName="New TM", menuName = "Pokemon_H/Inventory/TM", order=0)]
 public class TM : ScriptableObject {
 	[Range(0,100)]
 	public int number;

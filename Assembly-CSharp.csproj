@@ -66,9 +66,11 @@
      <Compile Include="Assets\Script\Systems\Combat\CombatMaster.cs" />
      <Compile Include="Assets\Script\Systems\Controller\PlayerController.cs" />
      <Compile Include="Assets\Script\Systems\Dialogue\CombatStep.cs" />
+     <Compile Include="Assets\Script\Systems\Dialogue\Criteria.cs" />
      <Compile Include="Assets\Script\Systems\Dialogue\DialogueMaster.cs" />
      <Compile Include="Assets\Script\Systems\Dialogue\DialogueStep.cs" />
      <Compile Include="Assets\Script\Systems\Game\GameMaster.cs" />
+     <Compile Include="Assets\Script\Systems\Game\ProgressData.cs" />
      <Compile Include="Assets\Script\Systems\Inventory\Inventory.cs" />
      <Compile Include="Assets\Script\Systems\Overworld\OverworldMaster.cs" />
      <Compile Include="Assets\Script\Systems\TM\TM.cs" />
@@ -81,10 +83,12 @@
      <Compile Include="Assets\Script\Systems\UI\OverworldUI.cs" />
      <Compile Include="Assets\Script\Systems\UI\TownUI.cs" />
      <Compile Include="Assets\Script\Systems\Utils\BattleTest.cs" />
+     <Compile Include="Assets\Script\Systems\Utils\BlinkingLight.cs" />
      <Compile Include="Assets\Script\Systems\Utils\ConditionChecker.cs" />
      <Compile Include="Assets\Script\Systems\Utils\FaintAnimation.cs" />
      <Compile Include="Assets\Script\Systems\Utils\FontAdjuster.cs" />
      <Compile Include="Assets\Script\Systems\Utils\IconCameraFacer.cs" />
+     <Compile Include="Assets\Script\Systems\Utils\LoadingText.cs" />
      <Compile Include="Assets\Script\Systems\Utils\RotationScript.cs" />
      <Compile Include="Assets\Script\Systems\Utils\ScriptableToInstance.cs" />
      <Compile Include="Assets\Script\Systems\Utils\StarterSelector.cs" />

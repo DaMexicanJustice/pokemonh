@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc29bf59f5a6a54ea1a9c4b6173f4f2, type: 3}
   m_Name: Won Combat
   m_EditorClassIdentifier: 
+  person: {fileID: 0}
   connectedSteps:
   - {fileID: 11400000, guid: cef6a64e12e078049b8bd17c5746e810, type: 2}
   - {fileID: 11400000, guid: c42027cf16513dd4d9c8eafe14b43f07, type: 2}
@@ -18,7 +19,8 @@ MonoBehaviour:
   leftBranchTag: Demand Reward
   middleBranchTag: Claim Badge
   rightBranchTag: 
-  dialogueText: You are a better trainer than me, in both skill and kindness. In accordance
-    with League rules, I confer upon you this Badge
+  dialogueText:
+  - In accordance with League rules, I confer upon you this Badge.
   background: {fileID: 21300000, guid: 99ae03d5a9bf70b44b836cc995434711, type: 3}
   character: {fileID: 21300000, guid: 82263c54c53c0c941a49025512b4af3b, type: 3}
+  criteria: {fileID: 0}
