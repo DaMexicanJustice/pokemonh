@@ -51,7 +51,7 @@ public class GameMaster : MonoBehaviour {
 
 	public void SetInteractingWithCharacter(BaseCharacter bc) {
 		DialogueMaster.instance.Init (bc);
-		DialogueMaster.instance.currentStep = bc.startNode;
+		DialogueMaster.instance.currentStep = (DialogueStepNode) bc.dialogueTree.nodes[0];
 		HideUI ();
 		ConversationUI.instance.Show ();
 	}

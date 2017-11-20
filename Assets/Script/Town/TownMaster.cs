@@ -36,15 +36,15 @@ public class TownMaster : MonoBehaviour {
 
 	private void SetupCharacters(Spot spot) {
 		List<BaseCharacter> characters = spot.characters;
-		foreach (BaseCharacter bs in characters) {
+		foreach (BaseCharacter bc in characters) {
 			GameObject btn = Instantiate (btnPrefab, btnsParent);
-			btn.GetComponentInChildren<Text> ().text = "Talk  to  " + bs.characterName;
-			if (bs.startNode.connectedSteps.Count > 0) {
+			btn.GetComponentInChildren<Text> ().text = "Talk  to  " + bc.characterName;
+			if (bc.dialogueTree.nodes.Count > 0) {
 				btn.GetComponent<Button> ().onClick.AddListener (delegate {
-					TalkToCharacter (bs);
+					TalkToCharacter (bc);
 				});
 			} else {
-				description.text = bs.characterName +  " Not yet implemented!";
+				description.text = bc.characterName +  " Not yet implemented!";
 			}
 		}
 	}

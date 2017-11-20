@@ -14,7 +14,7 @@ public class DialogueStepNode : Node {
 	public const string ID = "dialogueNode";
 
 	public BaseCharacter person;
-	//public string contextTag;
+	public string contextTag;
 	public string leftBranchTag;
 	public string middleBranchTag;
 	public string rightBranchTag;
@@ -31,10 +31,13 @@ public class DialogueStepNode : Node {
 		"Speech bubble 1\n*Speech bubble 2\n*Speech bubble 3\n*Speech bubble 4\n*Speech bubble 5\n*Speech bubble 6";
 	DialogueStepConnector stepConnector;
 
+
+
 	#region implemented abstract members of Node
 
 	public override Node Create (Vector2 pos)
 	{
+		
 		guiPos = pos;
 		DialogueStepNode node = CreateInstance <DialogueStepNode> ();
 
@@ -42,23 +45,22 @@ public class DialogueStepNode : Node {
 		node.rect = new Rect (pos.x, pos.y, 300f, 480f);
 
 
-		NodeInput.Create (node, "Connection", "DialogueNode");
+		NodeInput.Create (node, "Connection i1", "DialogueNode");
 
-		NodeOutput.Create (node, "Connection", "DialogueNode");
-		NodeOutput.Create (node, "Value", "DialogueNode");
-		NodeOutput.Create (node, "Value", "DialogueNode");
-
-		EditorStyles.label.normal.textColor = Color.black;
+		NodeOutput.Create (node, "Connection o1", "DialogueNode");
+		NodeOutput.Create (node, "Connection o2", "DialogueNode");
+		NodeOutput.Create (node, "Connection o3", "DialogueNode");
 
 		return node;
 	}
 
 	protected override void NodeGUI ()
 	{
+		
 		EditorGUILayout.BeginVertical("Box");
-		GUILayout.BeginHorizontal();
 
 		// UI components
+		GUILayout.BeginHorizontal();
 		characterPortrait = (Sprite) RTEditorGUI.ObjectField("Character Sprite", characterPortrait, false);
 		GUILayout.EndHorizontal();
 		GUILayout.BeginHorizontal();
@@ -66,36 +68,28 @@ public class DialogueStepNode : Node {
 		GUILayout.EndHorizontal();
 		GUILayout.BeginHorizontal();
 		person = (BaseCharacter)RTEditorGUI.ObjectField ("BaseCharacter Object", person, false);
-		//characterPortrait = (Sprite)EditorGUILayout.ObjectField(characterPortrait, typeof(Sprite), false, GUILayout.Width(50f), GUILayout.Height(50f));
-		//background = (Sprite)EditorGUILayout.ObjectField(background, typeof(Sprite), false, GUILayout.Width(50f), GUILayout.Height(50f));
-		//person = (BaseCharacter)EditorGUILayout.ObjectField (person, typeof (BaseCharacter), false, GUILayout.Width (170f), GUILayout.Height (15f));
 		GUILayout.EndHorizontal();
 
 		GUILayout.Space(15);
 		GUILayout.BeginHorizontal();
+		contextTag = (string) RTEditorGUI.TextField(new GUIContent("Context Tag", "Context of the dialogue step. I.e BATTLE, END, BADGE"), contextTag, GUIStyle.none);
+		GUILayout.EndHorizontal ();
+		GUILayout.BeginHorizontal();
 		leftBranchTag = (string) RTEditorGUI.TextField(new GUIContent("1st Node Action Name", "The name of the left most branch"), leftBranchTag, GUIStyle.none);
-		GUILayout.EndHorizontal ();
-		GUILayout.BeginHorizontal();
-		middleBranchTag = (string) RTEditorGUI.TextField(new GUIContent("2nd Node Action Name", "The name of the left most branch"), middleBranchTag, GUIStyle.none);
-		GUILayout.EndHorizontal ();
-		GUILayout.BeginHorizontal();
-		rightBranchTag = (string) RTEditorGUI.TextField(new GUIContent("3rd Node Action Name", "The name of the left most branch"), rightBranchTag, GUIStyle.none);
-		GUILayout.EndHorizontal ();
-
-		GUILayout.Space(15);
-		GUILayout.BeginHorizontal();
-		leftNode = (DialogueStepNode) EditorGUILayout.ObjectField(leftNode, typeof(DialogueStepNode), false, GUILayout.Width(200f), GUILayout.Height(15f));
 		OutputKnob (0);
 		GUILayout.EndHorizontal ();
 		GUILayout.BeginHorizontal();
-		middleNode = (DialogueStepNode) EditorGUILayout.ObjectField(middleNode, typeof(DialogueStepNode), false, GUILayout.Width(200f), GUILayout.Height(15f));
+		middleBranchTag = (string) RTEditorGUI.TextField(new GUIContent("2nd Node Action Name", "The name of the left most branch"), middleBranchTag, GUIStyle.none);
 		OutputKnob (1);
 		GUILayout.EndHorizontal ();
 		GUILayout.BeginHorizontal();
-		rightNode = (DialogueStepNode) EditorGUILayout.ObjectField(rightNode, typeof(DialogueStepNode), false, GUILayout.Width(200f), GUILayout.Height(15f));
+		rightBranchTag = (string) RTEditorGUI.TextField(new GUIContent("3rd Node Action Name", "The name of the left most branch"), rightBranchTag, GUIStyle.none);
 		OutputKnob (2);
-
 		GUILayout.EndHorizontal ();
+
+
+
+
 		GUILayout.Space(15);
 		GUILayout.BeginHorizontal ();
 		criteria = (Criteria) EditorGUILayout.ObjectField(criteria, typeof(Criteria), false, GUILayout.Width(200f), GUILayout.Height(15f));
@@ -116,6 +110,7 @@ public class DialogueStepNode : Node {
 			NodeEditor.RecalculateFrom (this);
 			TextAreaToList ();
 		}
+
 	}
 
 	public override string GetID {

@@ -10,7 +10,7 @@ public class DialogueMaster : MonoBehaviour
 	private ScriptableToInstance scriptableToInstance;
 
 	private BaseCharacter bc;
-	public DialogueStep currentStep;
+	public DialogueStepNode currentStep;
 	public GameObject btnPrefab;
 	public Transform btnsParent;
 
@@ -32,16 +32,12 @@ public class DialogueMaster : MonoBehaviour
 		scriptableToInstance = new ScriptableToInstance ();
 	}
 
-	void Update ()
-	{
-
-	}
-
 	public void Init (BaseCharacter bc)
 	{
 		this.bc = bc;
-		currentStep = bc.startNode;
+		currentStep = (DialogueStepNode) bc.dialogueTree.nodes[0];
 		currentStep.person = bc;
+		Debug.Log (currentStep);
 		SetupPaths ();
 		SetupDetails ();
 
@@ -53,8 +49,19 @@ public class DialogueMaster : MonoBehaviour
 	public void NextDialogueStep (int idx)
 	{
 		// In case something goes wrong, we can revert to this previous step (i.e failed check)
-		DialogueStep temp = currentStep;
-		currentStep = currentStep.connectedSteps [idx];
+		DialogueStepNode temp = currentStep;
+		switch (idx) {
+		case 0:
+			currentStep = (DialogueStepNode)currentStep.Inputs [0].connection.GetValue<DialogueStepNode> ();
+			break;
+		case 1:
+			currentStep = (DialogueStepNode) currentStep.Inputs [1].connection.GetValue<DialogueStepNode> ();
+			break;
+		case 2:
+			currentStep = (DialogueStepNode) currentStep.Inputs [2].connection.GetValue<DialogueStepNode> ();
+			break;
+		}
+		Debug.Log (idx + ", " + currentStep);
 		ClearPrevious ();
 
 		if (!CheckCriteria ()) {
@@ -62,6 +69,7 @@ public class DialogueMaster : MonoBehaviour
 			GameMaster.instance.spinner.SetActive (true);
 			Invoke ("ExitConversation", 3f);
 		} else {
+			/*
 			if (currentStep as CombatStep != null) {
 				if (Player.instance.pokemon.curHP > 0) {
 					PokemonInstance pInstance = scriptableToInstance.GetInstanceOfScriptableObject ((bc as Trainer).pokemon [0]);
@@ -71,11 +79,11 @@ public class DialogueMaster : MonoBehaviour
 					temp.dialogueText [0] = "Your Pokémon has fainted. You can't do battle!";
 					currentStep = temp;
 				}
-			} 
+			} */
 
 			SetupDetails ();
 
-			if (currentStep.connectedSteps.Count <= 0) {
+			if (currentStep == null) {
 				characterDialogue.text = "Branch under development. Returning to Town";
 				Invoke ("ExitConversation", 2f);
 			} else {
@@ -87,6 +95,7 @@ public class DialogueMaster : MonoBehaviour
 
 	private bool CheckCriteria ()
 	{
+		Debug.Log (currentStep);
 		Criteria c = currentStep.criteria;
 
 		if (c == null) {
@@ -141,7 +150,7 @@ public class DialogueMaster : MonoBehaviour
 	public void SetupDetails ()
 	{
 		background.sprite = currentStep.background;
-		character.sprite = currentStep.character;
+		character.sprite = currentStep.characterPortrait;
 		characterName.text = bc.characterName;
 		characterDialogue.text = currentStep.dialogueText [0];
 	}
@@ -201,6 +210,7 @@ public class DialogueMaster : MonoBehaviour
 
 	private void CheckSpecialCase ()
 	{
+		/*
 		switch (currentStep.contextTag.ToLower ()) {
 		case "end":
 			ExitConversation ();
@@ -213,6 +223,7 @@ public class DialogueMaster : MonoBehaviour
 			}
 			break;
 		}
+		*/
 	}
 
 	private void ExitConversation ()

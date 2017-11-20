@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NodeEditorFramework;
 
 [System.Serializable, CreateAssetMenu(fileName="New NPC", menuName = "Pokemon_H/NPC/NPC", order=0)]
 public class BaseCharacter : ScriptableObject {
@@ -12,6 +13,6 @@ public class BaseCharacter : ScriptableObject {
 		MALE, FEMALE, INTERSEX
 	}
 	public Gender gender;
-	public DialogueStep startNode;
+	public NodeCanvas dialogueTree;
 
 }

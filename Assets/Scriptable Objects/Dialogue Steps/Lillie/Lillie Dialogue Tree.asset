@@ -1,0 +1,297 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0c2324a9ab1224ebe3edad393e3544, type: 3}
+  m_Name: Lillie Dialogue Tree
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 114066913560560196}
+  - {fileID: 114126007301384474}
+  editorStates:
+  - {fileID: 114684741315655818}
+  livesInScene: 0
+--- !u!114 &114066913560560196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7609acd50c53f684287776dbe8029a07, type: 3}
+  m_Name: Dialogue Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: -353.6
+    y: -360.4
+    width: 300
+    height: 480
+  nodeKnobs:
+  - {fileID: 114246940089793898}
+  - {fileID: 114154500981667374}
+  - {fileID: 114135437264535178}
+  - {fileID: 114344331351001526}
+  Inputs:
+  - {fileID: 114246940089793898}
+  Outputs:
+  - {fileID: 114154500981667374}
+  - {fileID: 114135437264535178}
+  - {fileID: 114344331351001526}
+  person: {fileID: 11400000, guid: f54e3cb2018382949a4c604c84e0ca8a, type: 2}
+  contextTag: Start
+  leftBranchTag: Test
+  middleBranchTag: 
+  rightBranchTag: 
+  leftNode: {fileID: 0}
+  middleNode: {fileID: 0}
+  rightNode: {fileID: 0}
+  dialogueText:
+  - 'Separate into new speech bubble by using '
+  - '
+
+    Speech bubble 1
+
+'
+  - 'Speech bubble 2
+
+'
+  - 'Speech bubble 3
+
+'
+  - 'Speech bubble 4
+
+'
+  - 'Speech bubble 5
+
+'
+  - Speech bubble 6
+  background: {fileID: 21300000, guid: da9a96e2820f5cc489cf995963573ffd, type: 3}
+  characterPortrait: {fileID: 21300000, guid: 1faed432b598a1f40b53f60801fa6839, type: 3}
+  criteria: {fileID: 0}
+--- !u!114 &114126007301384474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7609acd50c53f684287776dbe8029a07, type: 3}
+  m_Name: Dialogue Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 180
+    y: -346
+    width: 300
+    height: 480
+  nodeKnobs:
+  - {fileID: 114540869762582556}
+  - {fileID: 114264930591767910}
+  - {fileID: 114492210645160918}
+  - {fileID: 114141764916355140}
+  Inputs:
+  - {fileID: 114540869762582556}
+  Outputs:
+  - {fileID: 114264930591767910}
+  - {fileID: 114492210645160918}
+  - {fileID: 114141764916355140}
+  person: {fileID: 11400000, guid: f54e3cb2018382949a4c604c84e0ca8a, type: 2}
+  contextTag: First
+  leftBranchTag: 
+  middleBranchTag: 
+  rightBranchTag: 
+  leftNode: {fileID: 0}
+  middleNode: {fileID: 0}
+  rightNode: {fileID: 0}
+  dialogueText:
+  - 'Separate into new speech bubble by using '
+  - '
+
+    Speech bubble 1
+
+'
+  - 'Speech bubble 2
+
+'
+  - 'Speech bubble 3
+
+'
+  - 'Speech bubble 4
+
+'
+  - 'Speech bubble 5
+
+'
+  - Speech bubble 6
+  background: {fileID: 21300000, guid: da9a96e2820f5cc489cf995963573ffd, type: 3}
+  characterPortrait: {fileID: 21300000, guid: 1faed432b598a1f40b53f60801fa6839, type: 3}
+  criteria: {fileID: 0}
+--- !u!114 &114135437264535178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e7026d0da7df848ab67d517ac12d74, type: 3}
+  m_Name: Connection o2
+  m_EditorClassIdentifier: 
+  body: {fileID: 114066913560560196}
+  side: 2
+  sidePosition: 236
+  sideOffset: 0
+  connections: []
+  typeID: DialogueNode
+  calculationBlockade: 0
+--- !u!114 &114141764916355140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e7026d0da7df848ab67d517ac12d74, type: 3}
+  m_Name: Connection o3
+  m_EditorClassIdentifier: 
+  body: {fileID: 114126007301384474}
+  side: 2
+  sidePosition: 254
+  sideOffset: 0
+  connections: []
+  typeID: DialogueNode
+  calculationBlockade: 0
+--- !u!114 &114154500981667374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e7026d0da7df848ab67d517ac12d74, type: 3}
+  m_Name: Connection o1
+  m_EditorClassIdentifier: 
+  body: {fileID: 114066913560560196}
+  side: 2
+  sidePosition: 218
+  sideOffset: 0
+  connections:
+  - {fileID: 114540869762582556}
+  typeID: DialogueNode
+  calculationBlockade: 0
+--- !u!114 &114246940089793898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4caff27366054dd44a30ddb5be369acc, type: 3}
+  m_Name: Connection i1
+  m_EditorClassIdentifier: 
+  body: {fileID: 114066913560560196}
+  side: 4
+  sidePosition: 20
+  sideOffset: 0
+  connection: {fileID: 0}
+  typeID: DialogueNode
+--- !u!114 &114264930591767910
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e7026d0da7df848ab67d517ac12d74, type: 3}
+  m_Name: Connection o1
+  m_EditorClassIdentifier: 
+  body: {fileID: 114126007301384474}
+  side: 2
+  sidePosition: 218
+  sideOffset: 0
+  connections: []
+  typeID: DialogueNode
+  calculationBlockade: 0
+--- !u!114 &114344331351001526
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e7026d0da7df848ab67d517ac12d74, type: 3}
+  m_Name: Connection o3
+  m_EditorClassIdentifier: 
+  body: {fileID: 114066913560560196}
+  side: 2
+  sidePosition: 254
+  sideOffset: 0
+  connections: []
+  typeID: DialogueNode
+  calculationBlockade: 0
+--- !u!114 &114492210645160918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e7026d0da7df848ab67d517ac12d74, type: 3}
+  m_Name: Connection o2
+  m_EditorClassIdentifier: 
+  body: {fileID: 114126007301384474}
+  side: 2
+  sidePosition: 236
+  sideOffset: 0
+  connections: []
+  typeID: DialogueNode
+  calculationBlockade: 0
+--- !u!114 &114540869762582556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4caff27366054dd44a30ddb5be369acc, type: 3}
+  m_Name: Connection i1
+  m_EditorClassIdentifier: 
+  body: {fileID: 114126007301384474}
+  side: 4
+  sidePosition: 20
+  sideOffset: 0
+  connection: {fileID: 114154500981667374}
+  typeID: DialogueNode
+--- !u!114 &114684741315655818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ab6487237ff124ea4c2aa5de9ce3fb, type: 3}
+  m_Name: MainEditorState
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 11400000}
+  parentEditor: {fileID: 0}
+  drawing: 1
+  selectedNode: {fileID: 0}
+  panOffset: {x: -87.99986, y: 156.79988}
+  zoom: 1.8
