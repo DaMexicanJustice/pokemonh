@@ -32,12 +32,14 @@ public class DialogueMaster : MonoBehaviour
 		scriptableToInstance = new ScriptableToInstance ();
 	}
 
+	void Update() {
+		
+	}
+
 	public void Init (BaseCharacter bc)
 	{
 		this.bc = bc;
-		currentStep = (DialogueStepNode) bc.dialogueTree.nodes[0];
-		currentStep.person = bc;
-		Debug.Log (currentStep);
+		currentStep = bc.startNode;
 		SetupPaths ();
 		SetupDetails ();
 
@@ -52,16 +54,21 @@ public class DialogueMaster : MonoBehaviour
 		DialogueStepNode temp = currentStep;
 		switch (idx) {
 		case 0:
-			currentStep = (DialogueStepNode)currentStep.Inputs [0].connection.GetValue<DialogueStepNode> ();
+			currentStep = (DialogueStepNode)currentStep.leftNode;
 			break;
 		case 1:
-			currentStep = (DialogueStepNode) currentStep.Inputs [1].connection.GetValue<DialogueStepNode> ();
+			currentStep = (DialogueStepNode)currentStep.middleNode;
 			break;
 		case 2:
-			currentStep = (DialogueStepNode) currentStep.Inputs [2].connection.GetValue<DialogueStepNode> ();
+			currentStep = (DialogueStepNode)currentStep.rightNode;
+			break;
+		default:
+			currentStep = temp;
 			break;
 		}
-		Debug.Log (idx + ", " + currentStep);
+
+		Debug.Log ("Current step: " + currentStep);
+
 		ClearPrevious ();
 
 		if (!CheckCriteria ()) {
@@ -95,7 +102,7 @@ public class DialogueMaster : MonoBehaviour
 
 	private bool CheckCriteria ()
 	{
-		Debug.Log (currentStep);
+		
 		Criteria c = currentStep.criteria;
 
 		if (c == null) {
@@ -166,9 +173,8 @@ public class DialogueMaster : MonoBehaviour
 	{
 
 		if (textIndex >= currentStep.dialogueText.Count) {
-
+			
 			if (currentStep.leftBranchTag.Length > 0) {
-				Debug.Log (currentStep.leftBranchTag);
 				GameObject btn = Instantiate (btnPrefab, btnsParent);
 				btn.GetComponentInChildren<Text> ().text = currentStep.leftBranchTag;
 				btn.GetComponent<Button> ().onClick.AddListener (delegate {
@@ -176,7 +182,6 @@ public class DialogueMaster : MonoBehaviour
 				});
 			} 
 			if (currentStep.middleBranchTag.Length > 0) {
-				Debug.Log (currentStep.middleBranchTag);
 				GameObject btn = Instantiate (btnPrefab, btnsParent);
 				btn.GetComponentInChildren<Text> ().text = currentStep.middleBranchTag;
 				btn.GetComponent<Button> ().onClick.AddListener (delegate {
@@ -184,7 +189,6 @@ public class DialogueMaster : MonoBehaviour
 				});
 			}
 			if (currentStep.rightBranchTag.Length > 0) {
-				Debug.Log (currentStep.rightBranchTag);
 				GameObject btn = Instantiate (btnPrefab, btnsParent);
 				btn.GetComponentInChildren<Text> ().text = currentStep.rightBranchTag;
 				btn.GetComponent<Button> ().onClick.AddListener (delegate {

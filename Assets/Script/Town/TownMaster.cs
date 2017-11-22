@@ -39,7 +39,7 @@ public class TownMaster : MonoBehaviour {
 		foreach (BaseCharacter bc in characters) {
 			GameObject btn = Instantiate (btnPrefab, btnsParent);
 			btn.GetComponentInChildren<Text> ().text = "Talk  to  " + bc.characterName;
-			if (bc.dialogueTree.nodes.Count > 0) {
+			if (bc.startNode.GetNodeCount() > 0) {
 				btn.GetComponent<Button> ().onClick.AddListener (delegate {
 					TalkToCharacter (bc);
 				});

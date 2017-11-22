@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f829d4c65a5385041b570fc5c9276361, type: 3}
   m_Name: Test Criteria
   m_EditorClassIdentifier: 
-  reqFailedText: Starter is not ELECTRIC type
-  starterTypeReq: 3
+  reqFailedText: Starter is not FIRE type
+  starterTypeReq: 1
   starterGenderReq: 0
   tmInInventory: {fileID: 0}
   berryInContainer: {fileID: 0}

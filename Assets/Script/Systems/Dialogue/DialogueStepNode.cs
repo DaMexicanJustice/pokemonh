@@ -27,11 +27,10 @@ public class DialogueStepNode : Node {
 	public Criteria criteria;
 
 	Vector2 guiPos;
-	string dialogueTextArea = "Separate into new speech bubble by using *\n" +
-		"Speech bubble 1\n*Speech bubble 2\n*Speech bubble 3\n*Speech bubble 4\n*Speech bubble 5\n*Speech bubble 6";
+	string dialogueTextArea;
 	DialogueStepConnector stepConnector;
-
-
+	int nodeCount;
+	bool hasLoadedText;
 
 	#region implemented abstract members of Node
 
@@ -42,8 +41,9 @@ public class DialogueStepNode : Node {
 		DialogueStepNode node = CreateInstance <DialogueStepNode> ();
 
 		node.name = "Dialogue Node";
-		node.rect = new Rect (pos.x, pos.y, 300f, 480f);
+		node.rect = new Rect (pos.x, pos.y, 300f, 420f);
 
+		//Debug chan
 
 		NodeInput.Create (node, "Connection i1", "DialogueNode");
 
@@ -103,8 +103,16 @@ public class DialogueStepNode : Node {
 		EditorStyles.textField.wordWrap = false;
 		EditorGUILayout.EndScrollView();
 		GUILayout.EndHorizontal ();
-
 		GUILayout.EndVertical ();
+
+		/* Causes issues under editing and debugging circumstances !!!
+		if (dialogueText.Count > 0 && !hasLoadedText) {
+			foreach (string str in dialogueText) {
+				dialogueTextArea += str + "*";
+			}
+			dialogueTextArea.TrimEnd ('*');
+			hasLoadedText = true;
+		} */
 
 		if (GUI.changed) {
 			NodeEditor.RecalculateFrom (this);
@@ -119,12 +127,46 @@ public class DialogueStepNode : Node {
 		}
 	}
 
+	public override bool Calculate() {
+		if (Outputs [0].connections.Count > 0) {
+			leftNode = (DialogueStepNode)Outputs [0].connections [0].body;
+		} else {
+			leftNode = null;
+		}
+		if (Outputs [1].connections.Count > 0) {
+			middleNode = (DialogueStepNode)Outputs [1].connections [0].body;
+		} else {
+			middleNode = null;
+		}
+		if (Outputs [2].connections.Count > 0) {
+			rightNode = (DialogueStepNode)Outputs [2].connections [0].body;
+		} else {
+			rightNode = null;
+		}
+		return true;
+	}
+
 	#endregion
 
 	void TextAreaToList() {
-		string[] splitString = dialogueTextArea.Split(new string[] { "*", "*" }, StringSplitOptions.None);
-		dialogueText = splitString.OfType<string>().ToList();
-		Debug.Log (dialogueText.Count);
+		if (dialogueTextArea.Length > 1) {
+			string[] splitString = dialogueTextArea.Split (new string[] { "*", "*" }, StringSplitOptions.None);
+			dialogueText = splitString.OfType<string> ().ToList ();
+			Debug.Log (dialogueText.Count);
+		}
+	}
+
+	public int GetNodeCount() {
+		if (leftNode != null) {
+			nodeCount++;
+		} 
+		if (middleNode != null) {
+			nodeCount++;
+		}
+		if (rightNode != null) {
+			nodeCount++;
+		}
+		return nodeCount;
 	}
 
 }

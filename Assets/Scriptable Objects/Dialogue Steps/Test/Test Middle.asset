@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7609acd50c53f684287776dbe8029a07, type: 3}
+  m_Name: Test Middle
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  nodeKnobs: []
+  Inputs: []
+  Outputs: []
+  person: {fileID: 11400000, guid: 9c5a1b92266a248468a7dfda420a29b8, type: 2}
+  contextTag: Middle
+  leftBranchTag: 
+  middleBranchTag: 
+  rightBranchTag: 
+  leftNode: {fileID: 0}
+  middleNode: {fileID: 0}
+  rightNode: {fileID: 0}
+  dialogueText: []
+  background: {fileID: 0}
+  characterPortrait: {fileID: 0}
+  criteria: {fileID: 0}
