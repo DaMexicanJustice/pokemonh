@@ -21,7 +21,7 @@ public class Pokemon : ScriptableObject {
 	}
 	public Type type;
 
-	public List<Move> moves;
+	public List<Move> moves = new List<Move>();
 
 	private PokemonTypeMaster ptm = new PokemonTypeMaster();
 

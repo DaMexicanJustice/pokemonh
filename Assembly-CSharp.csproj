@@ -53,10 +53,8 @@
   <ItemGroup>
      <Compile Include="Assets\Script\BadgeCollection.cs" />
      <Compile Include="Assets\Script\Berry\Berry.cs" />
-     <Compile Include="Assets\Script\Berry\BerryCompatibility.cs" />
      <Compile Include="Assets\Script\Character\BaseCharacter.cs" />
      <Compile Include="Assets\Script\Character\FemaleTrainer.cs" />
-     <Compile Include="Assets\Script\Character\SexPokemon.cs" />
      <Compile Include="Assets\Script\Character\Trainer.cs" />
      <Compile Include="Assets\Script\Player.cs" />
      <Compile Include="Assets\Script\Pokemon\Move.cs" />

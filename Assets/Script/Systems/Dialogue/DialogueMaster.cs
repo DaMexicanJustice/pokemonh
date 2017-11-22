@@ -123,14 +123,7 @@ public class DialogueMaster : MonoBehaviour
 		else if (c.characterMetReq != null) {
 			
 				// Pokemon affection criteria
-			} else if (c.pokemonAffectionReq > 0) {
-				if (currentStep.person as SexPokemon != null) {
-					SexPokemon sp = currentStep.person as SexPokemon;
-					if (sp.affection >= c.pokemonAffectionReq) {
-						return true;
-					}
-				}
-			}
+			} 
 		// Pokemon gender criteria
 		else if (c.starterGenderReq != Criteria.PokemonGender.NONE) {
 				return Player.instance.pokemon.gender.ToString ().Equals (c.starterGenderReq.ToString ());
@@ -239,6 +232,10 @@ public class DialogueMaster : MonoBehaviour
 		GameMaster.instance.spinner.SetActive (false);
 		textIndex = 0;
 		nextText.interactable = false;
+	}
+
+	public BaseCharacter TestGetBaseCharacter() {
+		return bc;
 	}
 
 }

@@ -39,7 +39,4 @@ public class ConditionChecker : MonoBehaviour {
 		return ft.hasBeenDisgraced;
 	}
 
-	public bool IsPokemonWillingToBreed(SexPokemon sp) {
-		return sp.affection >= 100;
-	} 
 }
