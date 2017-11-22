@@ -144,10 +144,10 @@ public class CombatMaster : MonoBehaviour
 		}
 		CombatUI.instance.Hide ();
 		if (playerWon) {
-			DialogueMaster.instance.NextDialogueStep (1);
+			DialogueMaster.instance.NextDialogueStep (0);
 			enemyPokemonImage.gameObject.GetComponent<FaintAnimation> ().Expire ();
 		} else {
-			DialogueMaster.instance.NextDialogueStep (0);
+			DialogueMaster.instance.NextDialogueStep (1);
 			playerPokemonImage.gameObject.GetComponent<FaintAnimation> ().Expire ();
 		}
 	}

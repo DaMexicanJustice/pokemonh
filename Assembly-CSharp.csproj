@@ -64,6 +64,8 @@
      <Compile Include="Assets\Script\Systems\Combat\CombatMaster.cs" />
      <Compile Include="Assets\Script\Systems\Controller\PlayerController.cs" />
      <Compile Include="Assets\Script\Systems\Dialogue\CombatStep.cs" />
+     <Compile Include="Assets\Script\Systems\Dialogue\CombatStepConnector.cs" />
+     <Compile Include="Assets\Script\Systems\Dialogue\CombatStepNode.cs" />
      <Compile Include="Assets\Script\Systems\Dialogue\Criteria.cs" />
      <Compile Include="Assets\Script\Systems\Dialogue\DialogueMaster.cs" />
      <Compile Include="Assets\Script\Systems\Dialogue\DialogueStep.cs" />

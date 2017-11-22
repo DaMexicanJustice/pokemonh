@@ -18,9 +18,9 @@ public class DialogueStepNode : Node {
 	public string leftBranchTag;
 	public string middleBranchTag;
 	public string rightBranchTag;
-	public DialogueStepNode leftNode;
-	public DialogueStepNode middleNode;
-	public DialogueStepNode rightNode;
+	public Node leftNode;
+	public Node middleNode;
+	public Node rightNode;
 	public List<string> dialogueText;
 	public Sprite background;
 	public Sprite characterPortrait;
@@ -129,17 +129,32 @@ public class DialogueStepNode : Node {
 
 	public override bool Calculate() {
 		if (Outputs [0].connections.Count > 0) {
-			leftNode = (DialogueStepNode)Outputs [0].connections [0].body;
+			if (Outputs [0].connections [0].body as DialogueStepNode != null) {
+				leftNode = (DialogueStepNode)Outputs [0].connections [0].body;
+			}
+			if (Outputs [0].connections [0].body as CombatStepNode != null) {
+				leftNode = (CombatStepNode)Outputs [0].connections [0].body;
+			}
 		} else {
 			leftNode = null;
 		}
 		if (Outputs [1].connections.Count > 0) {
-			middleNode = (DialogueStepNode)Outputs [1].connections [0].body;
+			if (Outputs [1].connections [0].body as DialogueStepNode != null) {
+				middleNode = (DialogueStepNode)Outputs [1].connections [0].body;
+			}
+			if (Outputs [1].connections [0].body as CombatStepNode != null) {
+				middleNode = (CombatStepNode)Outputs [1].connections [0].body;
+			}
 		} else {
 			middleNode = null;
 		}
 		if (Outputs [2].connections.Count > 0) {
-			rightNode = (DialogueStepNode)Outputs [2].connections [0].body;
+			if (Outputs [2].connections [0].body as DialogueStepNode != null) {
+				rightNode = (DialogueStepNode)Outputs [2].connections [0].body;
+			}
+			if (Outputs [2].connections [0].body as CombatStepNode != null) {
+				rightNode = (CombatStepNode)Outputs [2].connections [0].body;
+			}
 		} else {
 			rightNode = null;
 		}

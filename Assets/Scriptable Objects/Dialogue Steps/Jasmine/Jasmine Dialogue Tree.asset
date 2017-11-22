@@ -1,0 +1,491 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0c2324a9ab1224ebe3edad393e3544, type: 3}
+  m_Name: Jasmine Dialogue Tree
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 114741997159668052}
+  - {fileID: 114674230561481470}
+  - {fileID: 114123481328212754}
+  - {fileID: 114354437888315700}
+  - {fileID: 114546613509369810}
+  editorStates:
+  - {fileID: 114244435646356734}
+  livesInScene: 0
+--- !u!114 &114013026188310852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e7026d0da7df848ab67d517ac12d74, type: 3}
+  m_Name: Connection o1
+  m_EditorClassIdentifier: 
+  body: {fileID: 114741997159668052}
+  side: 2
+  sidePosition: 218
+  sideOffset: 0
+  connections: []
+  typeID: DialogueNode
+  calculationBlockade: 0
+--- !u!114 &114039792044167128
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e7026d0da7df848ab67d517ac12d74, type: 3}
+  m_Name: Connection o2
+  m_EditorClassIdentifier: 
+  body: {fileID: 114123481328212754}
+  side: 2
+  sidePosition: 85.8
+  sideOffset: 0
+  connections:
+  - {fileID: 114754972497811178}
+  typeID: DialogueNode
+  calculationBlockade: 0
+--- !u!114 &114123481328212754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12cc47f8f5223f1489438b57d6192bb4, type: 3}
+  m_Name: Combat Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: -12.599917
+    y: -150.59998
+    width: 300
+    height: 100
+  nodeKnobs:
+  - {fileID: 114780141668453156}
+  - {fileID: 114533255337245164}
+  - {fileID: 114039792044167128}
+  Inputs:
+  - {fileID: 114780141668453156}
+  Outputs:
+  - {fileID: 114533255337245164}
+  - {fileID: 114039792044167128}
+  trainer: {fileID: 11400000, guid: d15cca3fc88123f43979330964305f71, type: 2}
+  winStepNode: {fileID: 114820186686543938, guid: 71db4697676efaa4d8afa939cf23660e,
+    type: 2}
+  loseStepNode: {fileID: 114974777321332134, guid: 71db4697676efaa4d8afa939cf23660e,
+    type: 2}
+  contextTag: Combat
+--- !u!114 &114153922834143826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e7026d0da7df848ab67d517ac12d74, type: 3}
+  m_Name: Connection o2
+  m_EditorClassIdentifier: 
+  body: {fileID: 114546613509369810}
+  side: 2
+  sidePosition: 236
+  sideOffset: 0
+  connections:
+  - {fileID: 114780141668453156}
+  typeID: DialogueNode
+  calculationBlockade: 0
+--- !u!114 &114244435646356734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ab6487237ff124ea4c2aa5de9ce3fb, type: 3}
+  m_Name: MainEditorState
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 11400000}
+  parentEditor: {fileID: 0}
+  drawing: 1
+  selectedNode: {fileID: 0}
+  panOffset: {x: -144.80122, y: 231.79942}
+  zoom: 1.8
+--- !u!114 &114354437888315700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b75c49d27cf3742af4633f607c6485, type: 3}
+  m_Name: Extractor Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: -394.39954
+    y: -505.99976
+    width: 350
+    height: 100
+  nodeKnobs: []
+  Inputs: []
+  Outputs: []
+  nodeCanvas: {fileID: 0}
+--- !u!114 &114487998930427502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e7026d0da7df848ab67d517ac12d74, type: 3}
+  m_Name: Connection o3
+  m_EditorClassIdentifier: 
+  body: {fileID: 114546613509369810}
+  side: 2
+  sidePosition: 254
+  sideOffset: 0
+  connections: []
+  typeID: DialogueNode
+  calculationBlockade: 0
+--- !u!114 &114533255337245164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e7026d0da7df848ab67d517ac12d74, type: 3}
+  m_Name: Connection o1
+  m_EditorClassIdentifier: 
+  body: {fileID: 114123481328212754}
+  side: 2
+  sidePosition: 67.8
+  sideOffset: 0
+  connections:
+  - {fileID: 114949800952625412}
+  typeID: DialogueNode
+  calculationBlockade: 0
+--- !u!114 &114540350325983102
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e7026d0da7df848ab67d517ac12d74, type: 3}
+  m_Name: Connection o1
+  m_EditorClassIdentifier: 
+  body: {fileID: 114546613509369810}
+  side: 2
+  sidePosition: 218
+  sideOffset: 0
+  connections: []
+  typeID: DialogueNode
+  calculationBlockade: 0
+--- !u!114 &114546613509369810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7609acd50c53f684287776dbe8029a07, type: 3}
+  m_Name: Dialogue Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: -445.19995
+    y: -290.99997
+    width: 300
+    height: 420
+  nodeKnobs:
+  - {fileID: 114972705119433762}
+  - {fileID: 114540350325983102}
+  - {fileID: 114153922834143826}
+  - {fileID: 114487998930427502}
+  Inputs:
+  - {fileID: 114972705119433762}
+  Outputs:
+  - {fileID: 114540350325983102}
+  - {fileID: 114153922834143826}
+  - {fileID: 114487998930427502}
+  person: {fileID: 11400000, guid: d15cca3fc88123f43979330964305f71, type: 2}
+  contextTag: Start
+  leftBranchTag: Placeholder
+  middleBranchTag: Challenge
+  rightBranchTag: Placeholder 2
+  leftNode: {fileID: 0}
+  middleNode: {fileID: 114759349964765500, guid: 71db4697676efaa4d8afa939cf23660e,
+    type: 2}
+  rightNode: {fileID: 0}
+  dialogueText:
+  - 'Something bla bla
+
+'
+  - ' Challenge me
+
+'
+  - ' Come at me bro!'
+  background: {fileID: 21300000, guid: 5cf5c92e43c2868439b2d586878b000e, type: 3}
+  characterPortrait: {fileID: 21300000, guid: 82263c54c53c0c941a49025512b4af3b, type: 3}
+  criteria: {fileID: 0}
+--- !u!114 &114573416752485740
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e7026d0da7df848ab67d517ac12d74, type: 3}
+  m_Name: Connection o1
+  m_EditorClassIdentifier: 
+  body: {fileID: 114674230561481470}
+  side: 2
+  sidePosition: 218
+  sideOffset: 0
+  connections: []
+  typeID: DialogueNode
+  calculationBlockade: 0
+--- !u!114 &114674230561481470
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7609acd50c53f684287776dbe8029a07, type: 3}
+  m_Name: Dialogue Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 412.00006
+    y: -526.60004
+    width: 300
+    height: 420
+  nodeKnobs:
+  - {fileID: 114949800952625412}
+  - {fileID: 114573416752485740}
+  - {fileID: 114894521155505344}
+  - {fileID: 114786739388807730}
+  Inputs:
+  - {fileID: 114949800952625412}
+  Outputs:
+  - {fileID: 114573416752485740}
+  - {fileID: 114894521155505344}
+  - {fileID: 114786739388807730}
+  person: {fileID: 11400000, guid: d15cca3fc88123f43979330964305f71, type: 2}
+  contextTag: Player Won
+  leftBranchTag: 
+  middleBranchTag: 
+  rightBranchTag: 
+  leftNode: {fileID: 0}
+  middleNode: {fileID: 0}
+  rightNode: {fileID: 0}
+  dialogueText:
+  - Oh. I guess I lost
+  background: {fileID: 21300000, guid: 5cf5c92e43c2868439b2d586878b000e, type: 3}
+  characterPortrait: {fileID: 21300000, guid: 82263c54c53c0c941a49025512b4af3b, type: 3}
+  criteria: {fileID: 0}
+--- !u!114 &114727273376032916
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e7026d0da7df848ab67d517ac12d74, type: 3}
+  m_Name: Connection o3
+  m_EditorClassIdentifier: 
+  body: {fileID: 114741997159668052}
+  side: 2
+  sidePosition: 254
+  sideOffset: 0
+  connections: []
+  typeID: DialogueNode
+  calculationBlockade: 0
+--- !u!114 &114741997159668052
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7609acd50c53f684287776dbe8029a07, type: 3}
+  m_Name: Dialogue Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 425.20004
+    y: -40.00003
+    width: 300
+    height: 420
+  nodeKnobs:
+  - {fileID: 114754972497811178}
+  - {fileID: 114013026188310852}
+  - {fileID: 114851726450842804}
+  - {fileID: 114727273376032916}
+  Inputs:
+  - {fileID: 114754972497811178}
+  Outputs:
+  - {fileID: 114013026188310852}
+  - {fileID: 114851726450842804}
+  - {fileID: 114727273376032916}
+  person: {fileID: 11400000, guid: d15cca3fc88123f43979330964305f71, type: 2}
+  contextTag: Player Lost
+  leftBranchTag: 
+  middleBranchTag: 
+  rightBranchTag: 
+  leftNode: {fileID: 0}
+  middleNode: {fileID: 0}
+  rightNode: {fileID: 0}
+  dialogueText:
+  - I knew I would win
+  background: {fileID: 21300000, guid: 5cf5c92e43c2868439b2d586878b000e, type: 3}
+  characterPortrait: {fileID: 21300000, guid: 82263c54c53c0c941a49025512b4af3b, type: 3}
+  criteria: {fileID: 0}
+--- !u!114 &114754972497811178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4caff27366054dd44a30ddb5be369acc, type: 3}
+  m_Name: Connection i1
+  m_EditorClassIdentifier: 
+  body: {fileID: 114741997159668052}
+  side: 4
+  sidePosition: 20
+  sideOffset: 0
+  connection: {fileID: 114039792044167128}
+  typeID: DialogueNode
+--- !u!114 &114780141668453156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4caff27366054dd44a30ddb5be369acc, type: 3}
+  m_Name: Connection i1
+  m_EditorClassIdentifier: 
+  body: {fileID: 114123481328212754}
+  side: 4
+  sidePosition: 20
+  sideOffset: 0
+  connection: {fileID: 114153922834143826}
+  typeID: DialogueNode
+--- !u!114 &114786739388807730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e7026d0da7df848ab67d517ac12d74, type: 3}
+  m_Name: Connection o3
+  m_EditorClassIdentifier: 
+  body: {fileID: 114674230561481470}
+  side: 2
+  sidePosition: 254
+  sideOffset: 0
+  connections: []
+  typeID: DialogueNode
+  calculationBlockade: 0
+--- !u!114 &114851726450842804
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e7026d0da7df848ab67d517ac12d74, type: 3}
+  m_Name: Connection o2
+  m_EditorClassIdentifier: 
+  body: {fileID: 114741997159668052}
+  side: 2
+  sidePosition: 236
+  sideOffset: 0
+  connections: []
+  typeID: DialogueNode
+  calculationBlockade: 0
+--- !u!114 &114894521155505344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e7026d0da7df848ab67d517ac12d74, type: 3}
+  m_Name: Connection o2
+  m_EditorClassIdentifier: 
+  body: {fileID: 114674230561481470}
+  side: 2
+  sidePosition: 236
+  sideOffset: 0
+  connections: []
+  typeID: DialogueNode
+  calculationBlockade: 0
+--- !u!114 &114949800952625412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4caff27366054dd44a30ddb5be369acc, type: 3}
+  m_Name: Connection i1
+  m_EditorClassIdentifier: 
+  body: {fileID: 114674230561481470}
+  side: 4
+  sidePosition: 20
+  sideOffset: 0
+  connection: {fileID: 114533255337245164}
+  typeID: DialogueNode
+--- !u!114 &114972705119433762
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4caff27366054dd44a30ddb5be369acc, type: 3}
+  m_Name: Connection i1
+  m_EditorClassIdentifier: 
+  body: {fileID: 114546613509369810}
+  side: 4
+  sidePosition: 20
+  sideOffset: 0
+  connection: {fileID: 0}
+  typeID: DialogueNode
