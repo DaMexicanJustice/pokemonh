@@ -462,7 +462,7 @@ MonoBehaviour:
   parentEditor: {fileID: 0}
   drawing: 1
   selectedNode: {fileID: 0}
-  panOffset: {x: -396.79907, y: -164.1994}
+  panOffset: {x: -416.79907, y: -450.1994}
   zoom: 2
 --- !u!114 &114686205553554832
 MonoBehaviour:
