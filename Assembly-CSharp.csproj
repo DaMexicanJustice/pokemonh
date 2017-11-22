@@ -87,10 +87,13 @@
      <Compile Include="Assets\Script\Systems\Utils\BattleTest.cs" />
      <Compile Include="Assets\Script\Systems\Utils\BlinkingLight.cs" />
      <Compile Include="Assets\Script\Systems\Utils\ConditionChecker.cs" />
+     <Compile Include="Assets\Script\Systems\Utils\ExtractorNode.cs" />
+     <Compile Include="Assets\Script\Systems\Utils\ExtractorNodeConnector.cs" />
      <Compile Include="Assets\Script\Systems\Utils\FaintAnimation.cs" />
      <Compile Include="Assets\Script\Systems\Utils\FontAdjuster.cs" />
      <Compile Include="Assets\Script\Systems\Utils\IconCameraFacer.cs" />
      <Compile Include="Assets\Script\Systems\Utils\LoadingText.cs" />
+     <Compile Include="Assets\Script\Systems\Utils\NodeExtractor.cs" />
      <Compile Include="Assets\Script\Systems\Utils\RotationScript.cs" />
      <Compile Include="Assets\Script\Systems\Utils\ScriptableToInstance.cs" />
      <Compile Include="Assets\Script\Systems\Utils\StarterSelector.cs" />

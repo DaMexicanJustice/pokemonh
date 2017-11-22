@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Systems\Dialogue\DialogueStepNode.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Systems\Utils\NodeExtractor.cs">
     <Files>
-      <File FileName="Assets\Script\Systems\Dialogue\DialogueStepNode.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Systems\Dialogue\DialogueStepNode.cs" Line="132" Column="4" />
+      <File FileName="Assets\Script\Systems\Utils\NodeExtractor.cs" Line="21" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

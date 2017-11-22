@@ -14,7 +14,7 @@ MonoBehaviour:
   characterName: Lillie
   age: 14
   gender: 1
-  startNode: {fileID: 0}
+  startNode: {fileID: 11400000, guid: 9d0318c338b6a3449ad2b373dc38ff17, type: 2}
   pokemon: []
   personality: 0
   hasBeenDisgraced: 0

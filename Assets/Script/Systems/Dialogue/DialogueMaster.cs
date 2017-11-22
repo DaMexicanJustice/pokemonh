@@ -10,7 +10,7 @@ public class DialogueMaster : MonoBehaviour
 	private ScriptableToInstance scriptableToInstance;
 
 	private BaseCharacter bc;
-	public DialogueStep currentStep;
+	public DialogueStepNode currentStep;
 	public GameObject btnPrefab;
 	public Transform btnsParent;
 
@@ -32,16 +32,14 @@ public class DialogueMaster : MonoBehaviour
 		scriptableToInstance = new ScriptableToInstance ();
 	}
 
-	void Update ()
-	{
-
+	void Update() {
+		
 	}
 
 	public void Init (BaseCharacter bc)
 	{
 		this.bc = bc;
 		currentStep = bc.startNode;
-		currentStep.person = bc;
 		SetupPaths ();
 		SetupDetails ();
 
@@ -53,8 +51,24 @@ public class DialogueMaster : MonoBehaviour
 	public void NextDialogueStep (int idx)
 	{
 		// In case something goes wrong, we can revert to this previous step (i.e failed check)
-		DialogueStep temp = currentStep;
-		currentStep = currentStep.connectedSteps [idx];
+		DialogueStepNode temp = currentStep;
+		switch (idx) {
+		case 0:
+			currentStep = (DialogueStepNode)currentStep.leftNode;
+			break;
+		case 1:
+			currentStep = (DialogueStepNode)currentStep.middleNode;
+			break;
+		case 2:
+			currentStep = (DialogueStepNode)currentStep.rightNode;
+			break;
+		default:
+			currentStep = temp;
+			break;
+		}
+
+		Debug.Log ("Current step: " + currentStep);
+
 		ClearPrevious ();
 
 		if (!CheckCriteria ()) {
@@ -62,6 +76,7 @@ public class DialogueMaster : MonoBehaviour
 			GameMaster.instance.spinner.SetActive (true);
 			Invoke ("ExitConversation", 3f);
 		} else {
+			/*
 			if (currentStep as CombatStep != null) {
 				if (Player.instance.pokemon.curHP > 0) {
 					PokemonInstance pInstance = scriptableToInstance.GetInstanceOfScriptableObject ((bc as Trainer).pokemon [0]);
@@ -71,11 +86,11 @@ public class DialogueMaster : MonoBehaviour
 					temp.dialogueText [0] = "Your Pokémon has fainted. You can't do battle!";
 					currentStep = temp;
 				}
-			} 
+			} */
 
 			SetupDetails ();
 
-			if (currentStep.connectedSteps.Count <= 0) {
+			if (currentStep == null) {
 				characterDialogue.text = "Branch under development. Returning to Town";
 				Invoke ("ExitConversation", 2f);
 			} else {
@@ -87,6 +102,7 @@ public class DialogueMaster : MonoBehaviour
 
 	private bool CheckCriteria ()
 	{
+		
 		Criteria c = currentStep.criteria;
 
 		if (c == null) {
@@ -141,7 +157,7 @@ public class DialogueMaster : MonoBehaviour
 	public void SetupDetails ()
 	{
 		background.sprite = currentStep.background;
-		character.sprite = currentStep.character;
+		character.sprite = currentStep.characterPortrait;
 		characterName.text = bc.characterName;
 		characterDialogue.text = currentStep.dialogueText [0];
 	}
@@ -157,9 +173,8 @@ public class DialogueMaster : MonoBehaviour
 	{
 
 		if (textIndex >= currentStep.dialogueText.Count) {
-
+			
 			if (currentStep.leftBranchTag.Length > 0) {
-				Debug.Log (currentStep.leftBranchTag);
 				GameObject btn = Instantiate (btnPrefab, btnsParent);
 				btn.GetComponentInChildren<Text> ().text = currentStep.leftBranchTag;
 				btn.GetComponent<Button> ().onClick.AddListener (delegate {
@@ -167,7 +182,6 @@ public class DialogueMaster : MonoBehaviour
 				});
 			} 
 			if (currentStep.middleBranchTag.Length > 0) {
-				Debug.Log (currentStep.middleBranchTag);
 				GameObject btn = Instantiate (btnPrefab, btnsParent);
 				btn.GetComponentInChildren<Text> ().text = currentStep.middleBranchTag;
 				btn.GetComponent<Button> ().onClick.AddListener (delegate {
@@ -175,7 +189,6 @@ public class DialogueMaster : MonoBehaviour
 				});
 			}
 			if (currentStep.rightBranchTag.Length > 0) {
-				Debug.Log (currentStep.rightBranchTag);
 				GameObject btn = Instantiate (btnPrefab, btnsParent);
 				btn.GetComponentInChildren<Text> ().text = currentStep.rightBranchTag;
 				btn.GetComponent<Button> ().onClick.AddListener (delegate {
@@ -201,6 +214,7 @@ public class DialogueMaster : MonoBehaviour
 
 	private void CheckSpecialCase ()
 	{
+		/*
 		switch (currentStep.contextTag.ToLower ()) {
 		case "end":
 			ExitConversation ();
@@ -213,6 +227,7 @@ public class DialogueMaster : MonoBehaviour
 			}
 			break;
 		}
+		*/
 	}
 
 	private void ExitConversation ()
