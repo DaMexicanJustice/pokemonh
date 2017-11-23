@@ -11,7 +11,7 @@ public class DialogueMaster : MonoBehaviour
 	private ScriptableToInstance scriptableToInstance;
 
 	private BaseCharacter bc;
-	public Node currentStep;
+	public DialogueStep currentStep;
 	public GameObject btnPrefab;
 	public Transform btnsParent;
 
@@ -40,11 +40,11 @@ public class DialogueMaster : MonoBehaviour
 	public void Init (BaseCharacter bc)
 	{
 		this.bc = bc;
-		currentStep = bc.startNode;
+		currentStep = bc.startStep;
 		SetupPaths ();
 		SetupDetails ();
 		if (IsDialogueStep(currentStep)) {
-			if ( (currentStep as DialogueStepNode).dialogueText.Count > 1) {
+			if ( currentStep.dialogueText.Count > 1) {
 				nextText.interactable = true;
 			}
 		}
@@ -52,40 +52,28 @@ public class DialogueMaster : MonoBehaviour
 
 	public void NextDialogueStep (int idx)
 	{
-		DialogueStepNode temp = null;
+		DialogueStep temp = null;
 		// In case something goes wrong, we can revert to this previous step (i.e failed check)
 		if (IsDialogueStep (currentStep)) {
-			temp = (DialogueStepNode)currentStep;
+			temp = currentStep;
 		}
 			switch (idx) {
 		case 0:
 			if (IsDialogueStep (currentStep)) {
-				if (IsDialogueStep ((currentStep as DialogueStepNode).leftNode)) {
-					currentStep = (DialogueStepNode)(currentStep as DialogueStepNode).leftNode;
-				} else {
-					currentStep = (CombatStepNode)(currentStep as DialogueStepNode).leftNode;
-				}
+					currentStep = currentStep.leftNode;
 			} else {
-				currentStep = (DialogueStepNode)(currentStep as CombatStepNode).winStepNode;
+				currentStep = (currentStep as CombatStep).winStepNode;
 			}
 				break;
 		case 1:
 			if (IsDialogueStep (currentStep)) {
-				if (IsDialogueStep ((currentStep as DialogueStepNode).middleNode)) {
-					currentStep = (DialogueStepNode)(currentStep as DialogueStepNode).middleNode;
-				} else {
-					currentStep = (CombatStepNode)(currentStep as DialogueStepNode).middleNode;
-				}
+				currentStep = currentStep.middleNode;
 			} else {
-				currentStep = (DialogueStepNode)(currentStep as CombatStepNode).loseStepNode;
+				currentStep = (currentStep as CombatStep).loseStepNode;
 			}
 				break;
 			case 2:
-				if (IsDialogueStep ((currentStep as DialogueStepNode).rightNode)) {
-					currentStep = (DialogueStepNode)(currentStep as DialogueStepNode).rightNode;
-				} else {
-					currentStep = (CombatStepNode)(currentStep as DialogueStepNode).rightNode;
-				}
+			currentStep = currentStep.rightNode;
 				break;
 			default:
 				currentStep = temp;
@@ -98,13 +86,13 @@ public class DialogueMaster : MonoBehaviour
 
 		if (!CheckCriteria ()) {
 			if (IsDialogueStep (currentStep)) {
-				characterDialogue.text = "Requirement not met: " + (currentStep as DialogueStepNode).criteria.reqFailedText;
+				characterDialogue.text = "Requirement not met: " + currentStep.criteria.reqFailedText;
 				GameMaster.instance.spinner.SetActive (true);
 				Invoke ("ExitConversation", 3f);
 			}
 		} else {
 			
-			if (currentStep as CombatStepNode != null) {
+			if (currentStep as CombatStep != null) {
 				if (Player.instance.pokemon.curHP > 0) {
 					PokemonInstance pInstance = scriptableToInstance.GetInstanceOfScriptableObject ((bc as Trainer).pokemon [0]);
 					CombatMaster.instance.Init (Player.instance.pokemon, pInstance);
@@ -130,7 +118,7 @@ public class DialogueMaster : MonoBehaviour
 	private bool CheckCriteria ()
 	{
 		if (IsDialogueStep (currentStep)) {
-			Criteria c = (currentStep as DialogueStepNode).criteria;
+			Criteria c = currentStep.criteria;
 
 			if (c == null) {
 				return true;
@@ -180,10 +168,10 @@ public class DialogueMaster : MonoBehaviour
 	public void SetupDetails ()
 	{
 		if (IsDialogueStep (currentStep)) {
-			background.sprite = (currentStep as DialogueStepNode).background;
-			character.sprite = (currentStep as DialogueStepNode).characterPortrait;
-			characterName.text = (currentStep as DialogueStepNode).person.characterName;
-			characterDialogue.text = (currentStep as DialogueStepNode).dialogueText [0];
+			background.sprite = currentStep.background;
+			character.sprite = currentStep.characterPortrait;
+			characterName.text = currentStep.person.characterName;
+			characterDialogue.text = currentStep.dialogueText [0];
 		}
 	}
 
@@ -197,25 +185,25 @@ public class DialogueMaster : MonoBehaviour
 	public void SetupPaths ()
 	{
 		if (IsDialogueStep (currentStep)) {
-			if (textIndex >= (currentStep as DialogueStepNode).dialogueText.Count) {
+			if (textIndex >= currentStep.dialogueText.Count) {
 			
-				if ((currentStep as DialogueStepNode).leftBranchTag.Length > 0) {
+				if ((currentStep as DialogueStep).leftBranchTag.Length > 0) {
 					GameObject btn = Instantiate (btnPrefab, btnsParent);
-					btn.GetComponentInChildren<Text> ().text = (currentStep as DialogueStepNode).leftBranchTag;
+					btn.GetComponentInChildren<Text> ().text = currentStep.leftBranchTag;
 					btn.GetComponent<Button> ().onClick.AddListener (delegate {
 						NextDialogueStep (0);
 					});
 				} 
-				if ((currentStep as DialogueStepNode).middleBranchTag.Length > 0) {
+				if ((currentStep as DialogueStep).middleBranchTag.Length > 0) {
 					GameObject btn = Instantiate (btnPrefab, btnsParent);
-					btn.GetComponentInChildren<Text> ().text = (currentStep as DialogueStepNode).middleBranchTag;
+					btn.GetComponentInChildren<Text> ().text = currentStep.middleBranchTag;
 					btn.GetComponent<Button> ().onClick.AddListener (delegate {
 						NextDialogueStep (1);
 					});
 				}
-				if ((currentStep as DialogueStepNode).rightBranchTag.Length > 0) {
+				if ((currentStep as DialogueStep).rightBranchTag.Length > 0) {
 					GameObject btn = Instantiate (btnPrefab, btnsParent);
-					btn.GetComponentInChildren<Text> ().text = (currentStep as DialogueStepNode).rightBranchTag;
+					btn.GetComponentInChildren<Text> ().text = currentStep.rightBranchTag;
 					btn.GetComponent<Button> ().onClick.AddListener (delegate {
 						NextDialogueStep (2);
 					});
@@ -227,12 +215,12 @@ public class DialogueMaster : MonoBehaviour
 
 	public void NextText ()
 	{
-		if (textIndex < (currentStep as DialogueStepNode).dialogueText.Count) {
-			characterDialogue.text = (currentStep as DialogueStepNode).dialogueText [textIndex];
+		if (textIndex < currentStep.dialogueText.Count) {
+			characterDialogue.text = currentStep.dialogueText [textIndex];
 			textIndex++;
 		} 
 
-		if (textIndex >= (currentStep as DialogueStepNode).dialogueText.Count) {
+		if (textIndex >= currentStep.dialogueText.Count) {
 			nextText.interactable = false;
 			SetupPaths ();
 		}
@@ -241,8 +229,7 @@ public class DialogueMaster : MonoBehaviour
 	private void CheckSpecialCase ()
 	{
 		if (IsDialogueStep (currentStep)) {
-			Debug.Log ( (currentStep as DialogueStepNode).contextTag.ToLower() );
-			switch ((currentStep as DialogueStepNode).contextTag.ToLower ()) {
+			switch (currentStep.contextTag.ToLower ()) {
 			case "end":
 				ExitConversation ();
 				break;
@@ -272,8 +259,8 @@ public class DialogueMaster : MonoBehaviour
 		return bc;
 	}
 
-	public bool IsDialogueStep(Node node) {
-		return node as DialogueStepNode != null;
+	public bool IsDialogueStep(DialogueStep step) {
+		return step as CombatStep == null;
 	}
 
 }

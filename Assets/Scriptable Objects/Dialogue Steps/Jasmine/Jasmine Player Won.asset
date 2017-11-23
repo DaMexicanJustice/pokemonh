@@ -8,18 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7609acd50c53f684287776dbe8029a07, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fc29bf59f5a6a54ea1a9c4b6173f4f2, type: 3}
   m_Name: Jasmine Player Won
   m_EditorClassIdentifier: 
-  rect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  nodeKnobs: []
-  Inputs: []
-  Outputs: []
   person: {fileID: 11400000, guid: d15cca3fc88123f43979330964305f71, type: 2}
   contextTag: Player Won
   leftBranchTag: 

@@ -6,6 +6,11 @@ using UnityEngine;
 public class CombatStep : DialogueStep {
 
 	public bool playerWonCombat;
-	public FemaleTrainer ft;
+	public Trainer trainer;
+	public DialogueStep winStepNode;
+	public DialogueStep loseStepNode;
 
+	public CombatStep() {
+		contextTag = "Combat";
+	}
 }

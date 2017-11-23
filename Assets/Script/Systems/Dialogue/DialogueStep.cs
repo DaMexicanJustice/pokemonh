@@ -7,14 +7,16 @@ using UnityEngine.UI;
 public class DialogueStep : ScriptableObject {
 
 	public BaseCharacter person;
-	public List<DialogueStep> connectedSteps;
 	public string contextTag;
 	public string leftBranchTag;
 	public string middleBranchTag;
 	public string rightBranchTag;
+	public DialogueStep leftNode;
+	public DialogueStep middleNode;
+	public DialogueStep rightNode;
 	public List<string> dialogueText;
 	public Sprite background;
-	public Sprite character;
+	public Sprite characterPortrait;
 	public Criteria criteria;
 
 }

@@ -8,21 +8,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12cc47f8f5223f1489438b57d6192bb4, type: 3}
+  m_Script: {fileID: 11500000, guid: 125e70e65c117d3439882923f14c2042, type: 3}
   m_Name: Jasmine Combat Node
   m_EditorClassIdentifier: 
-  rect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  nodeKnobs: []
-  Inputs: []
-  Outputs: []
-  trainer: {fileID: 11400000, guid: d15cca3fc88123f43979330964305f71, type: 2}
-  winStepNode: {fileID: 114820186686543938, guid: 71db4697676efaa4d8afa939cf23660e,
-    type: 2}
-  loseStepNode: {fileID: 114974777321332134, guid: 71db4697676efaa4d8afa939cf23660e,
-    type: 2}
+  person: {fileID: 0}
   contextTag: Combat
+  leftBranchTag: 
+  middleBranchTag: 
+  rightBranchTag: 
+  leftNode: {fileID: 0}
+  middleNode: {fileID: 0}
+  rightNode: {fileID: 0}
+  dialogueText: []
+  background: {fileID: 0}
+  characterPortrait: {fileID: 0}
+  criteria: {fileID: 0}
+  playerWonCombat: 0
+  trainer: {fileID: 11400000, guid: d15cca3fc88123f43979330964305f71, type: 2}
+  winStepNode: {fileID: 0}
+  loseStepNode: {fileID: 0}

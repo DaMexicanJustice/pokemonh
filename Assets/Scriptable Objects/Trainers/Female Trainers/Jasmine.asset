@@ -14,7 +14,7 @@ MonoBehaviour:
   characterName: Jasmine
   age: 15
   gender: 1
-  startNode: {fileID: 11400000, guid: 741b23cc3de0ad94d84d9110b106de30, type: 2}
+  startStep: {fileID: 11400000, guid: 741b23cc3de0ad94d84d9110b106de30, type: 2}
   pokemon:
   - {fileID: 11400000, guid: 4e4d1f754521632459fe884b2ca51e31, type: 2}
   personality: 0

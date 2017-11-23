@@ -64,13 +64,9 @@
      <Compile Include="Assets\Script\Systems\Combat\CombatMaster.cs" />
      <Compile Include="Assets\Script\Systems\Controller\PlayerController.cs" />
      <Compile Include="Assets\Script\Systems\Dialogue\CombatStep.cs" />
-     <Compile Include="Assets\Script\Systems\Dialogue\CombatStepConnector.cs" />
-     <Compile Include="Assets\Script\Systems\Dialogue\CombatStepNode.cs" />
      <Compile Include="Assets\Script\Systems\Dialogue\Criteria.cs" />
      <Compile Include="Assets\Script\Systems\Dialogue\DialogueMaster.cs" />
      <Compile Include="Assets\Script\Systems\Dialogue\DialogueStep.cs" />
-     <Compile Include="Assets\Script\Systems\Dialogue\DialogueStepConnector.cs" />
-     <Compile Include="Assets\Script\Systems\Dialogue\DialogueStepNode.cs" />
      <Compile Include="Assets\Script\Systems\Game\GameMaster.cs" />
      <Compile Include="Assets\Script\Systems\Game\ProgressData.cs" />
      <Compile Include="Assets\Script\Systems\Inventory\Inventory.cs" />
@@ -87,13 +83,10 @@
      <Compile Include="Assets\Script\Systems\Utils\BattleTest.cs" />
      <Compile Include="Assets\Script\Systems\Utils\BlinkingLight.cs" />
      <Compile Include="Assets\Script\Systems\Utils\ConditionChecker.cs" />
-     <Compile Include="Assets\Script\Systems\Utils\ExtractorNode.cs" />
-     <Compile Include="Assets\Script\Systems\Utils\ExtractorNodeConnector.cs" />
      <Compile Include="Assets\Script\Systems\Utils\FaintAnimation.cs" />
      <Compile Include="Assets\Script\Systems\Utils\FontAdjuster.cs" />
      <Compile Include="Assets\Script\Systems\Utils\IconCameraFacer.cs" />
      <Compile Include="Assets\Script\Systems\Utils\LoadingText.cs" />
-     <Compile Include="Assets\Script\Systems\Utils\NodeExtractor.cs" />
      <Compile Include="Assets\Script\Systems\Utils\RotationScript.cs" />
      <Compile Include="Assets\Script\Systems\Utils\ScriptableToInstance.cs" />
      <Compile Include="Assets\Script\Systems\Utils\StarterSelector.cs" />
@@ -117,17 +110,8 @@
  <Reference Include="UnityEngine.Timeline">
  <HintPath>I:/Program Files (x86)/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
  </Reference>
- <Reference Include="UnityEngine.UIAutomation">
- <HintPath>I:/Program Files (x86)/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.GoogleAudioSpatializer">
- <HintPath>I:/Program Files (x86)/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>I:/Program Files (x86)/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.SpatialTracking">
- <HintPath>I:/Program Files (x86)/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Users/Guna/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>

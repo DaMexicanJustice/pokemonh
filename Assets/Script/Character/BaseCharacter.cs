@@ -13,6 +13,6 @@ public class BaseCharacter : ScriptableObject {
 		MALE, FEMALE, INTERSEX
 	}
 	public Gender gender;
-	public DialogueStepNode startNode;
+	public DialogueStep startStep;
 
 }
