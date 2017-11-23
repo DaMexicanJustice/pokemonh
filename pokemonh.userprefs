@@ -1,9 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Systems\Dialogue\DialogueMaster.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Editor\DialogueStepTest.cs">
     <Files>
-      <File FileName="Assets\Script\Systems\Dialogue\DialogueMaster.cs" Line="121" Column="1" />
-      <File FileName="Assets\Script\Town\TownMaster.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Systems\Combat\CombatMaster.cs" Line="132" Column="4" />
+      <File FileName="Assets\Script\Systems\UI\CombatUI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Systems\Game\GameMaster.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Pokemon\Move.cs" Line="5" Column="1" />
+      <File FileName="Assets\Editor\DialogueStepTest.cs" Line="57" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

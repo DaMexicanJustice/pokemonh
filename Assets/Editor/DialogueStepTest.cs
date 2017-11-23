@@ -46,4 +46,17 @@ public class DialogueStepTest {
 		}
 	}
 
+	[Test]
+	public void DialogueStepTestDeadEnds() {
+		// Use the Assert class to test conditions.
+		Object expectedResult = null;
+		Object[] steps = Resources.LoadAll<DialogueStep>("NUnit");
+		foreach (DialogueStep ds in steps) {
+				if (ds.leftNode == null || ds.middleNode == null || ds.rightNode == null) {
+					Assert.Fail ();
+				} 
+		}
+		Assert.Pass ();
+	}
+
 }

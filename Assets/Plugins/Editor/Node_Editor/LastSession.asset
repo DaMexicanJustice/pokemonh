@@ -34,9 +34,9 @@ MonoBehaviour:
   canvas: {fileID: 11400000}
   parentEditor: {fileID: 0}
   drawing: 1
-  selectedNode: {fileID: 114466890022007166}
-  panOffset: {x: 133.19734, y: 828.00024}
-  zoom: 0.8
+  selectedNode: {fileID: 0}
+  panOffset: {x: -101.0025, y: 587.5997}
+  zoom: 1.6
 --- !u!114 &114087411218609572
 MonoBehaviour:
   m_ObjectHideFlags: 1
