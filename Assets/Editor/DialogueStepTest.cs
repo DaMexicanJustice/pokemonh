@@ -10,7 +10,7 @@ public class DialogueStepTest {
 	[Test]
 	public void DialogueStepTestLookUpNodes() {
 		// Use the Assert class to test conditions.
-		Object[] nodes = Resources.LoadAll<DialogueStepNode>("NUnit");
+		Object[] nodes = Resources.LoadAll<DialogueStep>("NUnit");
 		Assert.True (nodes.Length > 0);
 	}
 
@@ -18,9 +18,9 @@ public class DialogueStepTest {
 	public void DialogueStepTestLillieNodes() {
 		// Use the Assert class to test conditions.
 		string expectedResult = "Lillie";
-		Object[] nodes = Resources.LoadAll<DialogueStepNode>("NUnit");
-		foreach (Node n in nodes) {
-			Assert.True ((n as DialogueStepNode).person.characterName.Equals (expectedResult));
+		Object[] steps = Resources.LoadAll<DialogueStep>("NUnit");
+		foreach (DialogueStep ds in steps) {
+			Assert.True (ds.person.characterName.Equals (expectedResult));
 		}
 	}
 
@@ -28,17 +28,16 @@ public class DialogueStepTest {
 	public void DialogueStepTestConnections() {
 		// Use the Assert class to test conditions.
 		int expectedResult = 1;
-		Object[] nodes = Resources.LoadAll<DialogueStepNode>("NUnit");
-		foreach (Node n in nodes) {
+		Object[] steps = Resources.LoadAll<DialogueStep>("NUnit");
+		foreach (DialogueStep ds in steps) {
 			int result = 0;
-			DialogueStepNode dsn = n as DialogueStepNode;
 
-			if (!dsn.name.Equals ("Lillie End")) {
-				if (dsn.leftNode != null)
+			if (!ds.name.Equals ("Lillie End")) {
+				if (ds.leftNode != null)
 					result++;
-				if (dsn.middleNode != null)
+				if (ds.middleNode != null)
 					result++;
-				if (dsn.rightNode != null)
+				if (ds.rightNode != null)
 					result++;
 				if (result < expectedResult) {
 					Assert.Fail ();

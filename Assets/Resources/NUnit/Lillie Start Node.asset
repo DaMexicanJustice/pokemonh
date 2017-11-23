@@ -8,25 +8,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7609acd50c53f684287776dbe8029a07, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fc29bf59f5a6a54ea1a9c4b6173f4f2, type: 3}
   m_Name: Lillie Start Node
   m_EditorClassIdentifier: 
-  rect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  nodeKnobs: []
-  Inputs: []
-  Outputs: []
   person: {fileID: 11400000, guid: f54e3cb2018382949a4c604c84e0ca8a, type: 2}
   contextTag: Start
   leftBranchTag: Say Hi
   middleBranchTag: Say Goodbye
   rightBranchTag: Stare
   leftNode: {fileID: 0}
-  middleNode: {fileID: 11400000, guid: 6fbc943bcfd09ed4e80f4956decc4ae9, type: 2}
+  middleNode: {fileID: 11400000, guid: 619142d99fd83724abbf4c2db3dddba2, type: 2}
   rightNode: {fileID: 0}
   dialogueText:
   - a
